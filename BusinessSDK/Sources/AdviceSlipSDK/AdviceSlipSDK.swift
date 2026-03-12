@@ -24,7 +24,7 @@ public struct AdviceSlip: Codable, Sendable {
 }
 
 
-private struct AdviceRepositoryFetchRandomAdviceRequest: APIRequest {
+private struct AdviceRepositoryFetchRandomAdviceTESTRequest: APIRequest {
 
 
     init() {
@@ -72,7 +72,7 @@ private struct AdviceRepositoryFetchAdviceByIdRequest: APIRequest {
 
 
 public protocol AdviceRepositoryProtocol: Sendable {
-    func fetchRandomAdvice() async throws -> AdviceEnvelope
+    func fetchRandomAdviceTEST() async throws -> AdviceEnvelope
     func fetchAdviceById(id: Int) async throws -> AdviceEnvelope
 }
 
@@ -83,8 +83,8 @@ public final class AdviceRepository: AdviceRepositoryProtocol, @unchecked Sendab
         self.networkEngine = networkEngine
     }
 
-public func fetchRandomAdvice() async throws -> AdviceEnvelope {
-    try await networkEngine.request(AdviceRepositoryFetchRandomAdviceRequest())
+public func fetchRandomAdviceTEST() async throws -> AdviceEnvelope {
+    try await networkEngine.request(AdviceRepositoryFetchRandomAdviceTESTRequest())
 }
 
 public func fetchAdviceById(id: Int) async throws -> AdviceEnvelope {

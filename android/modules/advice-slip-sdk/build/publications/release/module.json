@@ -35,11 +35,11 @@
         {
           "name": "advice-slip-sdk-android-main-SNAPSHOT.aar",
           "url": "advice-slip-sdk-android-main-SNAPSHOT.aar",
-          "size": 13105,
-          "sha512": "0a1f67f4b72489e59245342ae9c4b4db0ab37b9e80a9328bf0735adf30f7a594f369ec330e3e447977936036f5c3b21f912613f2e64772f7a8610b5a7956ac06",
-          "sha256": "0fbcd319043d1172d4ac8559a5296e8e58deb86f1d60e010143700f12ad66ac2",
-          "sha1": "ee108280202501282a7d9de3e509ecd6eaa70d24",
-          "md5": "1f888488d44b72c4ccff47aa399ae0b4"
+          "size": 13127,
+          "sha512": "c6b56e26ac4bb5ddacaac542ce3be9553e5b258a346215dbf47dd7195da5ab7bef5b57994a72992359406ded1c4236234d9fcbb3265c6be48b257a47ed6cbe9e",
+          "sha256": "7f57c44d6318f602b6bd46aab53da4e440285838e5ca7e7dd123156c6bbc7165",
+          "sha1": "b183adcef79bce2d1e0892be18cea6d7fd5f1462",
+          "md5": "898090f11bb407dd0d293133ac1fad8c"
         }
       ]
     },
@@ -78,11 +78,11 @@
         {
           "name": "advice-slip-sdk-android-main-SNAPSHOT.aar",
           "url": "advice-slip-sdk-android-main-SNAPSHOT.aar",
-          "size": 13105,
-          "sha512": "0a1f67f4b72489e59245342ae9c4b4db0ab37b9e80a9328bf0735adf30f7a594f369ec330e3e447977936036f5c3b21f912613f2e64772f7a8610b5a7956ac06",
-          "sha256": "0fbcd319043d1172d4ac8559a5296e8e58deb86f1d60e010143700f12ad66ac2",
-          "sha1": "ee108280202501282a7d9de3e509ecd6eaa70d24",
-          "md5": "1f888488d44b72c4ccff47aa399ae0b4"
+          "size": 13127,
+          "sha512": "c6b56e26ac4bb5ddacaac542ce3be9553e5b258a346215dbf47dd7195da5ab7bef5b57994a72992359406ded1c4236234d9fcbb3265c6be48b257a47ed6cbe9e",
+          "sha256": "7f57c44d6318f602b6bd46aab53da4e440285838e5ca7e7dd123156c6bbc7165",
+          "sha1": "b183adcef79bce2d1e0892be18cea6d7fd5f1462",
+          "md5": "898090f11bb407dd0d293133ac1fad8c"
         }
       ]
     },
@@ -98,11 +98,11 @@
         {
           "name": "advice-slip-sdk-android-main-SNAPSHOT-sources.jar",
           "url": "advice-slip-sdk-android-main-SNAPSHOT-sources.jar",
-          "size": 1563,
-          "sha512": "e0084e344a46bb3af35ca346c36614d7c2ba5d807f46290759472552132769f74c0c1658f89ace68489198b48a325d879baef12544226e1da183fcb9da224459",
-          "sha256": "065c50dd9d2c29fb3274917465f6821258ec5cec43aa1b015df0701a3b0d1d62",
-          "sha1": "d3dfff474afaad2ef286a04f75bb85a870f5d1ef",
-          "md5": "3aceb52d6d46fb80f2b27dd05c4526c2"
+          "size": 1568,
+          "sha512": "311fd8e722b77590cc5fa77474cc8fe07dc1b1a0c919a737fcdd8c0c6fe557761a1f15b17ea21c8b07d5498b87f3fb62630ec77bf2e9c423cc194684e705dbb1",
+          "sha256": "53e272a6e25190dd50541bd9217bec2f14db0da26a7ca555457d73ae5418a186",
+          "sha1": "741ed07931d9013038dbc5c4a1adad658e753edb",
+          "md5": "2762aef57e961a9e143ae7d8dcc68942"
         }
       ]
     }
