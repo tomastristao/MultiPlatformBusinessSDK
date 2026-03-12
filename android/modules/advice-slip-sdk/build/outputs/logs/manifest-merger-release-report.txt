@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml:2:13-83
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml:2:13-83
+	package
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml
+	xmlns:android
+		ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml:2:23-81
+uses-sdk
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml reason: use-sdk injection requested
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml
+	android:targetSdkVersion
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml
+	android:minSdkVersion
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/advice-slip-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest16838813515808977705.xml

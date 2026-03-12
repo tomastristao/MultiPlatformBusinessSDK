@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.multiplatformbusinesssdk</groupId>
+  <artifactId>business-sdk-android-core</artifactId>
+  <versioning>
+    <lastUpdated>20260312123809</lastUpdated>
+    <snapshot>
+      <timestamp>20260312.123809</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>main-20260312.123809-1</value>
+        <updated>20260312123809</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>aar</extension>
+        <value>main-20260312.123809-1</value>
+        <updated>20260312123809</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>sources</classifier>
+        <extension>jar</extension>
+        <value>main-20260312.123809-1</value>
+        <updated>20260312123809</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>main-20260312.123809-1</value>
+        <updated>20260312123809</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>main-SNAPSHOT</version>
+</metadata>

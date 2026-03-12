@@ -3,11 +3,11 @@
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>business-sdk-android-core</artifactId>
   <versioning>
-    <latest>main</latest>
-    <release>main</release>
+    <latest>main-SNAPSHOT</latest>
     <versions>
       <version>main</version>
+      <version>main-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20260312113631</lastUpdated>
+    <lastUpdated>20260312123856</lastUpdated>
   </versioning>
 </metadata>

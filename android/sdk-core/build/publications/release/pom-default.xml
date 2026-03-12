@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>business-sdk-android-core</artifactId>
-  <version>main</version>
+  <version>main-SNAPSHOT</version>
   <packaging>aar</packaging>
   <name>Business SDK Android Core</name>
   <description>Core networking primitives for generated Android SDK modules.</description>

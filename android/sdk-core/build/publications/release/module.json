@@ -3,9 +3,9 @@
   "component": {
     "group": "com.multiplatformbusinesssdk",
     "module": "business-sdk-android-core",
-    "version": "main",
+    "version": "main-SNAPSHOT",
     "attributes": {
-      "org.gradle.status": "release"
+      "org.gradle.status": "integration"
     }
   },
   "createdBy": {
@@ -33,8 +33,8 @@
       ],
       "files": [
         {
-          "name": "business-sdk-android-core-main.aar",
-          "url": "business-sdk-android-core-main.aar",
+          "name": "business-sdk-android-core-main-SNAPSHOT.aar",
+          "url": "business-sdk-android-core-main-SNAPSHOT.aar",
           "size": 22804,
           "sha512": "1eba7e7f2c893ca5b1d80847c76f448524754a40c4b2f74c1c67b16067e6ca3e88fcc9c2ca7f00bff9dcbbc47533154c0cfff451e5932a8f69cb10102b41ca01",
           "sha256": "f743d9c36ccf558597411fdfc6011a4dbace12f74f18157e248e92dd375add41",
@@ -69,8 +69,8 @@
       ],
       "files": [
         {
-          "name": "business-sdk-android-core-main.aar",
-          "url": "business-sdk-android-core-main.aar",
+          "name": "business-sdk-android-core-main-SNAPSHOT.aar",
+          "url": "business-sdk-android-core-main-SNAPSHOT.aar",
           "size": 22804,
           "sha512": "1eba7e7f2c893ca5b1d80847c76f448524754a40c4b2f74c1c67b16067e6ca3e88fcc9c2ca7f00bff9dcbbc47533154c0cfff451e5932a8f69cb10102b41ca01",
           "sha256": "f743d9c36ccf558597411fdfc6011a4dbace12f74f18157e248e92dd375add41",
@@ -89,8 +89,8 @@
       },
       "files": [
         {
-          "name": "business-sdk-android-core-main-sources.jar",
-          "url": "business-sdk-android-core-main-sources.jar",
+          "name": "business-sdk-android-core-main-SNAPSHOT-sources.jar",
+          "url": "business-sdk-android-core-main-SNAPSHOT-sources.jar",
           "size": 2435,
           "sha512": "13a41ab071a6a986cbb74a8120847adab03de1ef14e6fc1daf54dc66d0bfdb2af5dde2cc1d4f1734fd096f11ea43a37cf6cd715476854c6571371e0b38fc7c88",
           "sha256": "684816c9701a17f02953a8a4c0fd18d75ef51119667c3ea85c822af98f1b994b",

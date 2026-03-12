@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>business-sdk-android</artifactId>
-  <version>main</version>
+  <version>main-SNAPSHOT</version>
   <packaging>aar</packaging>
   <name>Business SDK Android</name>
   <description>Umbrella Android package exposing all generated SDK modules from this repository.</description>
@@ -17,25 +17,31 @@
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>business-sdk-android-core</artifactId>
-      <version>main</version>
+      <version>main-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.multiplatformbusinesssdk</groupId>
+      <artifactId>advice-slip-sdk-android</artifactId>
+      <version>main-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>cat-facts-sdk-android</artifactId>
-      <version>main</version>
+      <version>main-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>pokemon-sdk-android</artifactId>
-      <version>main</version>
+      <version>main-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>rick-and-morty-sdk-android</artifactId>
-      <version>main</version>
+      <version>main-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
