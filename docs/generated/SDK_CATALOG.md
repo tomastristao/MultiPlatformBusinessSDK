@@ -45,7 +45,7 @@ dependencies {
 - Swift access: `let repo = AdviceSlipSDKClient().adviceRepository`
 - Kotlin access: `val repo = AdviceSlipSDKClient().adviceRepository`
 
-- `fetchRandomAdvice` -> `GET /advice` -> `AdviceEnvelope`
+- `fetchRandomAdviceTEST` -> `GET /advice` -> `AdviceEnvelope`
 - `fetchAdviceById(id: Int)` -> `GET /advice/{id}` -> `AdviceEnvelope`
 
 

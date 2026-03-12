@@ -33,7 +33,7 @@ data class AdviceSlip(
 }
 
 
-private class AdviceRepositoryFetchRandomAdviceRequest() : ApiRequest<AdviceEnvelope> {
+private class AdviceRepositoryFetchRandomAdviceTESTRequest() : ApiRequest<AdviceEnvelope> {
     override val path: String = "/advice"
     override val method: HttpMethod = HttpMethod.GET
     override val body: ByteArray? = null
@@ -59,15 +59,15 @@ private class AdviceRepositoryFetchAdviceByIdRequest(private val id: Int) : ApiR
 
 
 interface AdviceRepositoryProtocol {
-    suspend fun fetchRandomAdvice(): AdviceEnvelope
+    suspend fun fetchRandomAdviceTEST(): AdviceEnvelope
     suspend fun fetchAdviceById(id: Int): AdviceEnvelope
 }
 
 class AdviceRepository(
     private val networkEngine: NetworkEngine
 ) : AdviceRepositoryProtocol {
-override suspend fun fetchRandomAdvice(): AdviceEnvelope {
-    return networkEngine.request(AdviceRepositoryFetchRandomAdviceRequest())
+override suspend fun fetchRandomAdviceTEST(): AdviceEnvelope {
+    return networkEngine.request(AdviceRepositoryFetchRandomAdviceTESTRequest())
 }
 
 override suspend fun fetchAdviceById(id: Int): AdviceEnvelope {

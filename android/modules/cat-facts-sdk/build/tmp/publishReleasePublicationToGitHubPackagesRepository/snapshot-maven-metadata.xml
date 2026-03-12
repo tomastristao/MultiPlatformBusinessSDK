@@ -3,32 +3,32 @@
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>cat-facts-sdk-android</artifactId>
   <versioning>
-    <lastUpdated>20260312123809</lastUpdated>
+    <lastUpdated>20260312124850</lastUpdated>
     <snapshot>
-      <timestamp>20260312.123809</timestamp>
-      <buildNumber>1</buildNumber>
+      <timestamp>20260312.124850</timestamp>
+      <buildNumber>2</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>module</extension>
-        <value>main-20260312.123809-1</value>
-        <updated>20260312123809</updated>
+        <value>main-20260312.124850-2</value>
+        <updated>20260312124850</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>main-20260312.124850-2</value>
+        <updated>20260312124850</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>main-20260312.123809-1</value>
-        <updated>20260312123809</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>pom</extension>
-        <value>main-20260312.123809-1</value>
-        <updated>20260312123809</updated>
+        <value>main-20260312.124850-2</value>
+        <updated>20260312124850</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>aar</extension>
-        <value>main-20260312.123809-1</value>
-        <updated>20260312123809</updated>
+        <value>main-20260312.124850-2</value>
+        <updated>20260312124850</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
