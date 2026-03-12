@@ -224,7 +224,7 @@ def generate_contract_docs(contracts)
   MARKDOWN
 end
 
-def generate_package_swift(contracts)
+def generate_package_swift(contracts, source_root: nil, tests_root: nil)
   products = [
     <<~PRODUCT.chomp
       .library(
@@ -246,10 +246,11 @@ def generate_package_swift(contracts)
 
   contract_targets = contracts.map do |contract|
     name = contract.fetch("swift_module")
+    target_path = source_root ? ",\n                path: \"#{source_root}/#{name}\"" : ""
     <<~TARGET.chomp
       .target(
                   name: "#{name}",
-                  dependencies: ["BusinessSDKCore"]
+                  dependencies: ["BusinessSDKCore"]#{target_path}
               ),
     TARGET
   end
@@ -257,6 +258,9 @@ def generate_package_swift(contracts)
   test_dependencies = ["\"BusinessSDK\""] + contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }
 
   business_sdk_dependencies = ["\"BusinessSDKCore\""] + contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }
+  core_path = source_root ? ",\n            path: \"#{source_root}/BusinessSDKCore\"" : ""
+  business_path = source_root ? ",\n            path: \"#{source_root}/BusinessSDK\"" : ""
+  tests_path = tests_root ? ",\n            path: \"#{tests_root}/BusinessSDKTests\"" : ""
 
   <<~SWIFT
     // swift-tools-version: 6.2
@@ -274,16 +278,16 @@ def generate_package_swift(contracts)
         ],
         targets: [
             .target(
-                name: "BusinessSDKCore"
+                name: "BusinessSDKCore"#{core_path}
             ),
     #{contract_targets.map { |line| "        #{line}" }.join("\n")}
             .target(
                 name: "BusinessSDK",
-                dependencies: #{format_dependency_array(business_sdk_dependencies)}
+                dependencies: #{format_dependency_array(business_sdk_dependencies)}#{business_path}
             ),
             .testTarget(
                 name: "BusinessSDKTests",
-                dependencies: #{format_dependency_array(test_dependencies)}
+                dependencies: #{format_dependency_array(test_dependencies)}#{tests_path}
             )
         ]
     )
@@ -1115,6 +1119,7 @@ contracts = read_contracts
 
 cleanup_generated_directories(contracts)
 
+write_file(File.join(ROOT, "Package.swift"), generate_package_swift(contracts, source_root: "BusinessSDK/Sources", tests_root: "BusinessSDK/Tests"))
 write_file(File.join(IOS_DIR, "Package.swift"), generate_package_swift(contracts))
 write_file(File.join(IOS_SOURCES_DIR, "BusinessSDKCore", "NetworkCore.swift"), generate_swift_core)
 write_file(File.join(IOS_SOURCES_DIR, "BusinessSDK", "BusinessSDK.swift"), generate_swift_umbrella(contracts))
