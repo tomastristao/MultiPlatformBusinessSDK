@@ -49,6 +49,24 @@ dependencies {
 - `fetchRandomFact` -> `GET /fact` -> `FactResponse`
 
 
+## CatFactsSDK
+
+- Contract file: `cat-facts.yml`
+- Swift module: `CatFactsSDK`
+- Android module: `cat-facts-sdk`
+- Android package: `com.multiplatformbusinesssdk.catfacts`
+- Base URL: `https://catfact.ninja`
+- Client: `CatFactsSDKClient`
+
+### CatFactRepository
+
+- Swift access: `let repo = CatFactsSDKClient().catFactRepository`
+- Kotlin access: `val repo = CatFactsSDKClient().catFactRepository`
+
+- `fetchFacts(limit: Int)` -> `GET /facts` -> `FactListResponse`
+- `fetchRandomFact` -> `GET /fact` -> `FactResponse`
+
+
 ## PokemonSDK
 
 - Contract file: `pokemon.yml`

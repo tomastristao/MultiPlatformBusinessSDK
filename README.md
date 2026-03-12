@@ -11,6 +11,14 @@ Contract-driven SDK generation for iOS and Android business logic.
 - `docs/generated/SDK_CATALOG.md`: Generated contract and repository catalog.
 - `.github/workflows/generate-sdks.yml`: Regenerates committed SDK code whenever contract YAML files change on push and publishes an emoji-based workflow summary.
 
+## Android Package
+
+The Android side is generated as a publishable GitHub Packages Maven package.
+
+- Umbrella artifact: `com.multiplatformbusinesssdk:business-sdk-android:$SDK_VERSION`
+- Published from GitHub Actions after generation
+- Includes the generated Android modules through a single dependency
+
 ## Example contract
 
 The repo stays empty by default. A sample Pokemon contract is kept as a test fixture at `test/fixtures/pokemon.yml` and defines:
