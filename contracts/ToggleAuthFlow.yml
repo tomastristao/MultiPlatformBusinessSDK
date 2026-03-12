@@ -141,7 +141,7 @@ models:
       - name: field
         type: String
       - name: rejectedValue
-        type: Any
+        type: String
       - name: message
         type: String
  
