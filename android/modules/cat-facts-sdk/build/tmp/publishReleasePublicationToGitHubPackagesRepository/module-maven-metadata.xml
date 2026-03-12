@@ -3,11 +3,11 @@
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>cat-facts-sdk-android</artifactId>
   <versioning>
-    <latest>main</latest>
-    <release>main</release>
+    <latest>main-SNAPSHOT</latest>
     <versions>
       <version>main</version>
+      <version>main-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20260312113726</lastUpdated>
+    <lastUpdated>20260312124101</lastUpdated>
   </versioning>
 </metadata>

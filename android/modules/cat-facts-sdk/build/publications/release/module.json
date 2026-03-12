@@ -3,9 +3,9 @@
   "component": {
     "group": "com.multiplatformbusinesssdk",
     "module": "cat-facts-sdk-android",
-    "version": "main",
+    "version": "main-SNAPSHOT",
     "attributes": {
-      "org.gradle.status": "release"
+      "org.gradle.status": "integration"
     }
   },
   "createdBy": {
@@ -33,8 +33,8 @@
       ],
       "files": [
         {
-          "name": "cat-facts-sdk-android-main.aar",
-          "url": "cat-facts-sdk-android-main.aar",
+          "name": "cat-facts-sdk-android-main-SNAPSHOT.aar",
+          "url": "cat-facts-sdk-android-main-SNAPSHOT.aar",
           "size": 13791,
           "sha512": "73d3235d4ab9d230c4375cfa5363bb84e206b4abf4c6c66831e7303d1b954f0ab5de72643ecb18e4f5b0d7b23564f9aba3aacf860df47a7f03ebe67d9675cef0",
           "sha256": "48a78b9efc996c565019cec6e75f1f3f2b8393efcc87824728c11c71cecb8882",
@@ -56,7 +56,7 @@
           "group": "com.multiplatformbusinesssdk",
           "module": "business-sdk-android-core",
           "version": {
-            "requires": "main"
+            "requires": "main-SNAPSHOT"
           }
         },
         {
@@ -76,8 +76,8 @@
       ],
       "files": [
         {
-          "name": "cat-facts-sdk-android-main.aar",
-          "url": "cat-facts-sdk-android-main.aar",
+          "name": "cat-facts-sdk-android-main-SNAPSHOT.aar",
+          "url": "cat-facts-sdk-android-main-SNAPSHOT.aar",
           "size": 13791,
           "sha512": "73d3235d4ab9d230c4375cfa5363bb84e206b4abf4c6c66831e7303d1b954f0ab5de72643ecb18e4f5b0d7b23564f9aba3aacf860df47a7f03ebe67d9675cef0",
           "sha256": "48a78b9efc996c565019cec6e75f1f3f2b8393efcc87824728c11c71cecb8882",
@@ -96,8 +96,8 @@
       },
       "files": [
         {
-          "name": "cat-facts-sdk-android-main-sources.jar",
-          "url": "cat-facts-sdk-android-main-sources.jar",
+          "name": "cat-facts-sdk-android-main-SNAPSHOT-sources.jar",
+          "url": "cat-facts-sdk-android-main-SNAPSHOT-sources.jar",
           "size": 1670,
           "sha512": "f2e63baeabdf72388e91ab0dc1d31255d284160f40c96da7e09022b3a784870a03c7f1cc306444212cdaf67c0b3e77399a7033ffcba9f1149fe55364d121992c",
           "sha256": "87a91a8e0f99f8dc41a179e1c83ea59d29f21b9eb446c80b9c3155b4cd6085e7",

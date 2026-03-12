@@ -3,11 +3,11 @@
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>pokemon-sdk-android</artifactId>
   <versioning>
-    <latest>main</latest>
-    <release>main</release>
+    <latest>main-SNAPSHOT</latest>
     <versions>
       <version>main</version>
+      <version>main-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20260312113753</lastUpdated>
+    <lastUpdated>20260312124132</lastUpdated>
   </versioning>
 </metadata>

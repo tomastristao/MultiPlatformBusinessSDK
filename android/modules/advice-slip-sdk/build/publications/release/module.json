@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.multiplatformbusinesssdk",
+    "module": "advice-slip-sdk-android",
+    "version": "main-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "advice-slip-sdk-android-main-SNAPSHOT.aar",
+          "url": "advice-slip-sdk-android-main-SNAPSHOT.aar",
+          "size": 13105,
+          "sha512": "0a1f67f4b72489e59245342ae9c4b4db0ab37b9e80a9328bf0735adf30f7a594f369ec330e3e447977936036f5c3b21f912613f2e64772f7a8610b5a7956ac06",
+          "sha256": "0fbcd319043d1172d4ac8559a5296e8e58deb86f1d60e010143700f12ad66ac2",
+          "sha1": "ee108280202501282a7d9de3e509ecd6eaa70d24",
+          "md5": "1f888488d44b72c4ccff47aa399ae0b4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "business-sdk-android-core",
+          "version": {
+            "requires": "main-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "advice-slip-sdk-android-main-SNAPSHOT.aar",
+          "url": "advice-slip-sdk-android-main-SNAPSHOT.aar",
+          "size": 13105,
+          "sha512": "0a1f67f4b72489e59245342ae9c4b4db0ab37b9e80a9328bf0735adf30f7a594f369ec330e3e447977936036f5c3b21f912613f2e64772f7a8610b5a7956ac06",
+          "sha256": "0fbcd319043d1172d4ac8559a5296e8e58deb86f1d60e010143700f12ad66ac2",
+          "sha1": "ee108280202501282a7d9de3e509ecd6eaa70d24",
+          "md5": "1f888488d44b72c4ccff47aa399ae0b4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "advice-slip-sdk-android-main-SNAPSHOT-sources.jar",
+          "url": "advice-slip-sdk-android-main-SNAPSHOT-sources.jar",
+          "size": 1563,
+          "sha512": "e0084e344a46bb3af35ca346c36614d7c2ba5d807f46290759472552132769f74c0c1658f89ace68489198b48a325d879baef12544226e1da183fcb9da224459",
+          "sha256": "065c50dd9d2c29fb3274917465f6821258ec5cec43aa1b015df0701a3b0d1d62",
+          "sha1": "d3dfff474afaad2ef286a04f75bb85a870f5d1ef",
+          "md5": "3aceb52d6d46fb80f2b27dd05c4526c2"
+        }
+      ]
+    }
+  ]
+}

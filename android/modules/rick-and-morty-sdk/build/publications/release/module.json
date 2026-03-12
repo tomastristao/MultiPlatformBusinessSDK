@@ -3,9 +3,9 @@
   "component": {
     "group": "com.multiplatformbusinesssdk",
     "module": "rick-and-morty-sdk-android",
-    "version": "main",
+    "version": "main-SNAPSHOT",
     "attributes": {
-      "org.gradle.status": "release"
+      "org.gradle.status": "integration"
     }
   },
   "createdBy": {
@@ -33,8 +33,8 @@
       ],
       "files": [
         {
-          "name": "rick-and-morty-sdk-android-main.aar",
-          "url": "rick-and-morty-sdk-android-main.aar",
+          "name": "rick-and-morty-sdk-android-main-SNAPSHOT.aar",
+          "url": "rick-and-morty-sdk-android-main-SNAPSHOT.aar",
           "size": 20640,
           "sha512": "164bcedd748564c1f7b380dc66da7c2e443b3c6e087434f5198eea700b3cd9012e5e55c274dcc047a817a34687c79baa30386c893cc20d22bc2e9e61aa952e7e",
           "sha256": "21b102269bf6dc3b9b7a30776ed2594fab1fbbb1e0bfe7572b1c4f67808cdacb",
@@ -56,7 +56,7 @@
           "group": "com.multiplatformbusinesssdk",
           "module": "business-sdk-android-core",
           "version": {
-            "requires": "main"
+            "requires": "main-SNAPSHOT"
           }
         },
         {
@@ -76,8 +76,8 @@
       ],
       "files": [
         {
-          "name": "rick-and-morty-sdk-android-main.aar",
-          "url": "rick-and-morty-sdk-android-main.aar",
+          "name": "rick-and-morty-sdk-android-main-SNAPSHOT.aar",
+          "url": "rick-and-morty-sdk-android-main-SNAPSHOT.aar",
           "size": 20640,
           "sha512": "164bcedd748564c1f7b380dc66da7c2e443b3c6e087434f5198eea700b3cd9012e5e55c274dcc047a817a34687c79baa30386c893cc20d22bc2e9e61aa952e7e",
           "sha256": "21b102269bf6dc3b9b7a30776ed2594fab1fbbb1e0bfe7572b1c4f67808cdacb",
@@ -96,8 +96,8 @@
       },
       "files": [
         {
-          "name": "rick-and-morty-sdk-android-main-sources.jar",
-          "url": "rick-and-morty-sdk-android-main-sources.jar",
+          "name": "rick-and-morty-sdk-android-main-SNAPSHOT-sources.jar",
+          "url": "rick-and-morty-sdk-android-main-SNAPSHOT-sources.jar",
           "size": 1909,
           "sha512": "b32630d322a8798121a5883bd80244fdbfdf5d136c2c21b2c72dd00d3d482f4a88211945354f23c48916ffb2597dda1a31b31cb3bf72d5489422c01aedae5ad8",
           "sha256": "c916972b211ebc08864ef1997e9cca86e26b90639295cebda1792b8ff0b67bc0",

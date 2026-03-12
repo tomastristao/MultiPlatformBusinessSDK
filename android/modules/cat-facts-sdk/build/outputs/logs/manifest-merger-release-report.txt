@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml:2:13-83
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml:2:13-83
+ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml:2:13-83
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml:2:13-83
 	package
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml
 	xmlns:android
-		ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml:2:23-81
+		ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml:2:23-81
 uses-sdk
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml reason: use-sdk injection requested
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml reason: use-sdk injection requested
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml
 	android:targetSdkVersion
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml
 	android:minSdkVersion
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest631646171715041600.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/cat-facts-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest8248284585804688150.xml

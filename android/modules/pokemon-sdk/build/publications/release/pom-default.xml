@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.multiplatformbusinesssdk</groupId>
   <artifactId>pokemon-sdk-android</artifactId>
-  <version>main</version>
+  <version>main-SNAPSHOT</version>
   <packaging>aar</packaging>
   <name>PokemonSDK Android</name>
   <description>Generated Android business SDK for PokemonSDK.</description>
@@ -23,7 +23,7 @@
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>business-sdk-android-core</artifactId>
-      <version>main</version>
+      <version>main-SNAPSHOT</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>

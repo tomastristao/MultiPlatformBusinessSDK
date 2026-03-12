@@ -3,9 +3,9 @@
   "component": {
     "group": "com.multiplatformbusinesssdk",
     "module": "pokemon-sdk-android",
-    "version": "main",
+    "version": "main-SNAPSHOT",
     "attributes": {
-      "org.gradle.status": "release"
+      "org.gradle.status": "integration"
     }
   },
   "createdBy": {
@@ -33,8 +33,8 @@
       ],
       "files": [
         {
-          "name": "pokemon-sdk-android-main.aar",
-          "url": "pokemon-sdk-android-main.aar",
+          "name": "pokemon-sdk-android-main-SNAPSHOT.aar",
+          "url": "pokemon-sdk-android-main-SNAPSHOT.aar",
           "size": 16862,
           "sha512": "9180756b09911f1ced0dc4dd9185413d828ef224800406ca04adc4db4806d44dc9b3019b75baad0b728b1de40a9208ae490958bf8032565f32a8a58dbda89819",
           "sha256": "a23fd7cf2f97c865fa1732090696ddb71cc36fe5accf0c06271ffe142f61e1b2",
@@ -56,7 +56,7 @@
           "group": "com.multiplatformbusinesssdk",
           "module": "business-sdk-android-core",
           "version": {
-            "requires": "main"
+            "requires": "main-SNAPSHOT"
           }
         },
         {
@@ -76,8 +76,8 @@
       ],
       "files": [
         {
-          "name": "pokemon-sdk-android-main.aar",
-          "url": "pokemon-sdk-android-main.aar",
+          "name": "pokemon-sdk-android-main-SNAPSHOT.aar",
+          "url": "pokemon-sdk-android-main-SNAPSHOT.aar",
           "size": 16862,
           "sha512": "9180756b09911f1ced0dc4dd9185413d828ef224800406ca04adc4db4806d44dc9b3019b75baad0b728b1de40a9208ae490958bf8032565f32a8a58dbda89819",
           "sha256": "a23fd7cf2f97c865fa1732090696ddb71cc36fe5accf0c06271ffe142f61e1b2",
@@ -96,8 +96,8 @@
       },
       "files": [
         {
-          "name": "pokemon-sdk-android-main-sources.jar",
-          "url": "pokemon-sdk-android-main-sources.jar",
+          "name": "pokemon-sdk-android-main-SNAPSHOT-sources.jar",
+          "url": "pokemon-sdk-android-main-SNAPSHOT-sources.jar",
           "size": 1791,
           "sha512": "fdc3a8bae2093c299b790e5d8c9b2c58ea17f0f9be9524334a9f5a3d1bcca8d403548fa433a19b725344e88125b226510e8a24ab1ac7ebc890ca3a94396cf34f",
           "sha256": "332d2cb17ca0dc745c7a3737ba98cd0535889241752a3e7711fb76748e7ca065",
