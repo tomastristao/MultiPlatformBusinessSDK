@@ -327,7 +327,7 @@ def generate_package_swift(contracts, source_root: nil, tests_root: nil)
   tests_path = tests_root ? ",\n            path: \"#{tests_root}/BusinessSDKTests\"" : ""
 
   <<~SWIFT
-    // swift-tools-version: 6.2
+    // swift-tools-version: 6.1
 
     import PackageDescription
 
