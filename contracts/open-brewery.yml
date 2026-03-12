@@ -1,0 +1,90 @@
+name: OpenBrewerySDK
+swift_module: OpenBrewerySDK
+android_module: open-brewery-sdk
+android_package: com.multiplatformbusinesssdk.openbrewery
+base_url: https://api.openbrewerydb.org/v1
+default_headers:
+  Accept: application/json
+repositories:
+  - name: BreweryRepository
+    methods:
+      - name: fetchBreweries
+        method: GET
+        path: /breweries
+        response: "[BrewerySummary]"
+        query_params:
+          - name: by_city
+            type: String
+          - name: per_page
+            type: Int
+            default: 10
+      - name: fetchBreweryDetail
+        method: GET
+        path: /breweries/{id}
+        response: BreweryDetailResponse
+        path_params:
+          - name: id
+            type: String
+models:
+  - name: BrewerySummary
+    fields:
+      - name: id
+        type: String
+      - name: name
+        type: String
+      - name: brewery_type
+        type: String
+      - name: city
+        type: String
+      - name: state
+        type: String
+      - name: country
+        type: String
+  - name: BreweryDetailResponse
+    fields:
+      - name: id
+        type: String
+      - name: name
+        type: String
+      - name: brewery_type
+        type: String
+      - name: address_1
+        type: String
+      - name: city
+        type: String
+      - name: state_province
+        type: String
+      - name: postal_code
+        type: String
+      - name: country
+        type: String
+      - name: phone
+        type: String
+      - name: website_url
+        type: String
+errors:
+  format:
+    type: ErrorEnvelope
+    description: Standardized contract-level error description for SDK consumers.
+  models:
+    - name: ErrorEnvelope
+      fields:
+        - name: code
+          type: String
+        - name: message
+          type: String
+        - name: status
+          type: Int
+  status_codes:
+    - code: 400
+      name: BadRequest
+      message: Invalid brewery query parameters.
+    - code: 404
+      name: BreweryNotFound
+      message: Brewery id was not found.
+    - code: 429
+      name: RateLimited
+      message: Too many requests to the public API.
+    - code: 500
+      name: ServerError
+      message: Upstream brewery service failed.
