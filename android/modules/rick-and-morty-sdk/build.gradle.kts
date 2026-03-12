@@ -12,6 +12,12 @@
             minSdk = 26
         }
 
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
@@ -27,16 +33,10 @@
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
 
-publishing {
-    singleVariant("release") {
-        withSourcesJar()
-    }
-}
-
 afterEvaluate {
-    extensions.configure<PublishingExtension>("publishing") {
+    publishing {
         publications {
-            create<MavenPublication>("release") {
+            create("release", org.gradle.api.publish.maven.MavenPublication::class) {
                 from(components["release"])
                 groupId = "com.multiplatformbusinesssdk"
                 artifactId = "rick-and-morty-sdk-android"

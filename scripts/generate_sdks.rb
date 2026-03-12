@@ -170,16 +170,10 @@ end
 def android_publish_snippet(artifact_id, pom_name, pom_description)
   <<~KOTLIN
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
-
     afterEvaluate {
-        extensions.configure<PublishingExtension>("publishing") {
+        publishing {
             publications {
-                create<MavenPublication>("release") {
+                create("release", org.gradle.api.publish.maven.MavenPublication::class) {
                     from(components["release"])
                     groupId = "#{ANDROID_GROUP_ID}"
                     artifactId = "#{artifact_id}"
@@ -795,6 +789,12 @@ def generate_android_core
             minSdk = 26
         }
 
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
@@ -1004,6 +1004,12 @@ def generate_android_contract(contract)
             minSdk = 26
         }
 
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
@@ -1165,6 +1171,12 @@ def generate_android_umbrella(contracts)
 
         defaultConfig {
             minSdk = 26
+        }
+
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
         }
 
         compileOptions {
