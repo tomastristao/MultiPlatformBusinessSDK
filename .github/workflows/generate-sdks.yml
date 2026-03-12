@@ -16,20 +16,55 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
+      - name: "📥 Checkout repository"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Regenerate SDKs
+      - name: "🧾 Detect changed contracts"
+        id: changes
+        run: |
+          BEFORE_SHA="${{ github.event.before }}"
+          if [[ -z "$BEFORE_SHA" || "$BEFORE_SHA" == "0000000000000000000000000000000000000000" ]]; then
+            BEFORE_SHA="$(git rev-list --max-parents=0 HEAD)"
+          fi
+          CHANGED="$(git diff --name-only "$BEFORE_SHA" "${{ github.sha }}" -- 'contracts/**/*.yml' 'contracts/**/*.yaml' || true)"
+          {
+            echo "changed_contracts<<EOF"
+            if [[ -n "$CHANGED" ]]; then
+              echo "$CHANGED"
+            else
+              echo "(no contract file diff detected)"
+            fi
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: "⚙️ Generate SDKs and docs"
         run: ruby scripts/generate_sdks.rb
 
-      - name: Commit generated sources
+      - name: "🧪 Verify generator"
+        run: ruby test/generator_test.rb
+
+      - name: "📝 Publish workflow summary"
+        run: |
+          {
+            echo "# 📦 Contract generation summary"
+            echo
+            echo "## 🧾 Changed contracts"
+            echo '${{ steps.changes.outputs.changed_contracts }}'
+            echo
+            echo "## 🏗️ Generated outputs"
+            echo "- 🍎 Swift package: \`BusinessSDK/\`"
+            echo "- 🤖 Android modules: \`android/\`"
+            echo "- 📚 Documentation: \`docs/generated/SDK_CATALOG.md\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: "🚀 Commit generated sources"
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add BusinessSDK android
-            git commit -m "chore: regenerate SDKs from contracts"
+            git add BusinessSDK android docs test
+            git commit -m "✨ regenerate SDKs from contracts"
             git push
           fi

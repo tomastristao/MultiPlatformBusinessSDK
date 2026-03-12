@@ -8,7 +8,8 @@ Contract-driven SDK generation for iOS and Android business logic.
 - `scripts/generate_sdks.rb`: Regenerates both platform SDKs from those contracts.
 - `BusinessSDK/`: Swift Package Manager package with a shared native Swift network layer plus generated repositories.
 - `android/`: Android library modules with a native Kotlin network layer plus generated repositories.
-- `.github/workflows/generate-sdks.yml`: Regenerates committed SDK code whenever contract YAML files change on push.
+- `docs/generated/SDK_CATALOG.md`: Generated contract and repository catalog.
+- `.github/workflows/generate-sdks.yml`: Regenerates committed SDK code whenever contract YAML files change on push and publishes an emoji-based workflow summary.
 
 ## Example contract
 
@@ -26,6 +27,7 @@ ruby scripts/generate_sdks.rb
 ```
 
 With no files in `contracts/`, generation keeps the SDK empty and only emits the shared native networking core.
+It also refreshes `docs/generated/SDK_CATALOG.md`.
 
 ## Tests
 
@@ -57,6 +59,6 @@ val engine = NetworkEngine(baseUrl = "https://api.example.com")
 
 1. Add a new YAML contract in `contracts/`, for example by copying `test/fixtures/pokemon.yml`.
 2. Run `ruby scripts/generate_sdks.rb`.
-3. Commit the generated changes in `BusinessSDK/` and `android/`.
+3. Commit the generated changes in `BusinessSDK/`, `android/`, and `docs/generated/`.
 
-On GitHub, pushes that touch contract YAML files trigger the regeneration workflow automatically.
+On GitHub, pushes that touch contract YAML files trigger the regeneration workflow automatically. The workflow uses emoji-labelled steps and writes an emoji summary to the Actions run page showing changed contracts and generated outputs.
