@@ -53,23 +53,23 @@ jobs:
       - name: "🧪 Test Swift package"
         run: swift test
 
-      - name: "🧰 Setup Gradle"
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 8.10.2
-
-      - name: "🛠️ Generate Gradle wrapper"
-        working-directory: android
-        run: gradle wrapper --gradle-version 8.10.2
-
-      - name: "📦 Publish Android GitHub package"
-        working-directory: android
-        env:
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          SDK_VERSION: ${{ steps.version.outputs.sdk_version }}
-        run: ./gradlew publish
+#      - name: "🧰 Setup Gradle"
+#        uses: gradle/actions/setup-gradle@v4
+#        with:
+#          gradle-version: 8.10.2
+#
+#      - name: "🛠️ Generate Gradle wrapper"
+#        working-directory: android
+#        run: gradle wrapper --gradle-version 8.10.2
+#
+#      - name: "📦 Publish Android GitHub package"
+#        working-directory: android
+#        env:
+#          GITHUB_ACTOR: ${{ github.actor }}
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          GITHUB_REPOSITORY: ${{ github.repository }}
+#          SDK_VERSION: ${{ steps.version.outputs.sdk_version }}
+#        run: ./gradlew publish
 
       - name: "📝 Publish workflow summary"
         run: |
