@@ -2,10 +2,6 @@ name: Generate SDKs
 
 on:
   push:
-    paths:
-      - "contracts/**/*.yml"
-      - "contracts/**/*.yaml"
-      - "scripts/generate_sdks.rb"
   workflow_dispatch:
 
 permissions:
