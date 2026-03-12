@@ -44,11 +44,52 @@ jobs:
 
       - name: "📝 Publish workflow summary"
         run: |
+          CONTRACT_DETAILS="$(ruby <<'RUBY'
+          require "yaml"
+
+          changed = <<~TEXT
+          ${{ steps.changes.outputs.changed_contracts }}
+          TEXT
+
+          files = changed.lines.map(&:strip).reject { |line| line.empty? || line == "(no contract file diff detected)" }
+
+          if files.empty?
+            puts "- _(No contract metadata available for this run)_"
+            exit
+          end
+
+          files.each do |file|
+            next unless File.exist?(file)
+
+            contract = YAML.load_file(file)
+            client_name = "#{contract.fetch("swift_module")}Client"
+
+            puts "### #{contract.fetch("name")}"
+            puts "- 📄 Contract: `#{file}`"
+            puts "- 🍎 Swift module: `#{contract.fetch("swift_module")}`"
+            puts "- 🤖 Android module: `#{contract.fetch("android_module")}`"
+            puts "- 🧩 Client API: `#{client_name}`"
+
+            contract.fetch("repositories", []).each do |repository|
+              puts "- 📚 Repository: `#{repository.fetch("name")}`"
+              repository.fetch("methods", []).each do |method|
+                puts "  - `#{method.fetch("method")} #{method.fetch("path")}` -> `#{method.fetch("name")}`"
+              end
+            end
+
+            puts
+          end
+          RUBY
+          )"
+
           {
             echo "# 📦 Contract generation summary"
             echo
             echo "## 🧾 Changed contracts"
             echo '${{ steps.changes.outputs.changed_contracts }}'
+            echo
+            echo "## 🧠 Generated APIs"
+            echo "$CONTRACT_DETAILS"
             echo
             echo "## 🏗️ Generated outputs"
             echo "- 🍎 Swift package: \`BusinessSDK/\`"
