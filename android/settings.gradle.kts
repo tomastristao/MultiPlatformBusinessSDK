@@ -16,4 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MultiPlatformBusinessSDK"
 include(":sdk-core")
-
+include(":modules:pokemon-sdk")
+project(":modules:pokemon-sdk").projectDir = file("modules/pokemon-sdk")
