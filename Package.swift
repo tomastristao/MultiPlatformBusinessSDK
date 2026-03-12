@@ -13,6 +13,10 @@ let package = Package(
             name: "BusinessSDK",
             targets: ["BusinessSDK"]
         ),
+        .library(
+            name: "PokemonSDK",
+            targets: ["PokemonSDK"]
+        ),
     ],
     targets: [
         .target(
@@ -20,13 +24,18 @@ let package = Package(
             path: "BusinessSDK/Sources/BusinessSDKCore"
         ),
         .target(
-            name: "BusinessSDK",
+            name: "PokemonSDK",
             dependencies: ["BusinessSDKCore"],
+                path: "BusinessSDK/Sources/PokemonSDK"
+        ),
+        .target(
+            name: "BusinessSDK",
+            dependencies: ["BusinessSDKCore", "PokemonSDK"],
             path: "BusinessSDK/Sources/BusinessSDK"
         ),
         .testTarget(
             name: "BusinessSDKTests",
-            dependencies: ["BusinessSDK"],
+            dependencies: ["BusinessSDK", "PokemonSDK"],
             path: "BusinessSDK/Tests/BusinessSDKTests"
         )
     ]
