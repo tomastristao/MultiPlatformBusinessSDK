@@ -1,0 +1,147 @@
+name: ToggleIdentitySDK
+swift_module: ToggleIdentitySDK
+android_module: toggle-identity-sdk
+android_package: com.toggle.identity
+base_url: http://localhost:9011
+default_headers:
+  Accept: application/json
+  Content-Type: application/json
+repositories:
+  - name: IdentityRepository
+    methods:
+      - name: sendMagicLink
+        method: POST
+        path: /api/v1/identity/send-magic-link
+        request: SendMagicLinkRequest
+        response: ApiResponseSendMagicLink
+        headers:
+          - name: Idempotency-Key
+            type: String
+            default: null
+          - name: X-Request-ID
+            type: String
+            default: null
+      - name: verifyMagicLink
+        method: POST
+        path: /api/v1/identity/verify-magic-link
+        request: VerifyMagicLinkRequest
+        response: ApiResponseVerifyMagicLink
+        headers:
+          - name: Idempotency-Key
+            type: String
+            default: null
+          - name: X-Request-ID
+            type: String
+            default: null
+models:
+  - name: SendMagicLinkRequest
+    fields:
+      - name: email
+        type: String
+      - name: purpose
+        type: String
+  - name: SendMagicLinkResponse
+    fields:
+      - name: message
+        type: String
+      - name: email
+        type: String
+      - name: purpose
+        type: String
+      - name: expiresIn
+        type: Int
+      - name: notificationStatus
+        type: String
+  - name: ApiResponseSendMagicLink
+    fields:
+      - name: success
+        type: Bool
+      - name: status
+        type: Int
+      - name: message
+        type: String
+      - name: data
+        type: SendMagicLinkResponse
+      - name: error
+        type: ErrorDetails
+      - name: timestamp
+        type: String
+      - name: traceId
+        type: String
+      - name: version
+        type: String
+  - name: VerifyMagicLinkRequest
+    fields:
+      - name: email
+        type: String
+      - name: oobCode
+        type: String
+      - name: purpose
+        type: String
+      - name: deviceInfo
+        type: DeviceInfo
+  - name: DeviceInfo
+    fields:
+      - name: deviceId
+        type: String
+      - name: platform
+        type: String
+      - name: appVersion
+        type: String
+  - name: VerifyMagicLinkResponse
+    fields:
+      - name: idToken
+        type: String
+      - name: refreshToken
+        type: String
+      - name: tokenType
+        type: String
+      - name: expiresIn
+        type: Int
+      - name: user
+        type: UserInfo
+  - name: UserInfo
+    fields:
+      - name: userId
+        type: String
+      - name: email
+        type: String
+      - name: status
+        type: String
+  - name: ApiResponseVerifyMagicLink
+    fields:
+      - name: success
+        type: Bool
+      - name: status
+        type: Int
+      - name: message
+        type: String
+      - name: data
+        type: VerifyMagicLinkResponse
+      - name: error
+        type: ErrorDetails
+      - name: timestamp
+        type: String
+      - name: traceId
+        type: String
+      - name: version
+        type: String
+  - name: ErrorDetails
+    fields:
+      - name: code
+        type: String
+      - name: details
+        type: String
+      - name: fieldErrors
+        type: "[FieldError]"
+      - name: helpUrl
+        type: String
+  - name: FieldError
+    fields:
+      - name: field
+        type: String
+      - name: rejectedValue
+        type: Any
+      - name: message
+        type: String
+ 
