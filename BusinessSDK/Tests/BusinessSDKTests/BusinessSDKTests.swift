@@ -3,6 +3,6 @@ import XCTest
 
 final class BusinessSDKTests: XCTestCase {
     func testGeneratedModulesAreRegistered() {
-        XCTAssertEqual(BusinessSDKExports.contractModules, ["AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"])
+        XCTAssertEqual(BusinessSDKExports.contractModules, ["ToggleIdentitySDK", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"])
     }
 }

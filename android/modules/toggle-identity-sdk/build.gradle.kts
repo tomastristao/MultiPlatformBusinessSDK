@@ -5,7 +5,7 @@
     }
 
     android {
-        namespace = "com.multiplatformbusinesssdk"
+        namespace = "com.toggle.identity"
         compileSdk = 34
 
         defaultConfig {
@@ -29,13 +29,8 @@
     }
 
     dependencies {
-        api(project(":sdk-core"))
-        api(project(":modules:toggle-identity-sdk"))
-        api(project(":modules:advice-slip-sdk"))
-        api(project(":modules:cat-facts-sdk"))
-        api(project(":modules:open-brewery-sdk"))
-        api(project(":modules:pokemon-sdk"))
-        api(project(":modules:rick-and-morty-sdk"))
+        implementation(project(":sdk-core"))
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
 
 afterEvaluate {
@@ -44,12 +39,12 @@ afterEvaluate {
             create("release", org.gradle.api.publish.maven.MavenPublication::class) {
                 from(components["release"])
                 groupId = "com.multiplatformbusinesssdk"
-                artifactId = "business-sdk-android"
+                artifactId = "toggle-identity-sdk-android"
                 version = System.getenv("SDK_VERSION") ?: "0.1.0-SNAPSHOT"
 
                 pom {
-                    name.set("Business SDK Android")
-                    description.set("Umbrella Android package exposing all generated SDK modules from this repository.")
+                    name.set("ToggleIdentitySDK Android")
+                    description.set("Generated Android business SDK for ToggleIdentitySDK.")
                 }
             }
         }

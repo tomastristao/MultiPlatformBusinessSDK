@@ -14,6 +14,10 @@ let package = Package(
             targets: ["BusinessSDK"]
         ),
         .library(
+            name: "ToggleIdentitySDK",
+            targets: ["ToggleIdentitySDK"]
+        ),
+        .library(
             name: "AdviceSlipSDK",
             targets: ["AdviceSlipSDK"]
         ),
@@ -38,6 +42,11 @@ let package = Package(
         .target(
             name: "BusinessSDKCore",
             path: "BusinessSDK/Sources/BusinessSDKCore"
+        ),
+        .target(
+            name: "ToggleIdentitySDK",
+            dependencies: ["BusinessSDKCore"],
+                path: "BusinessSDK/Sources/ToggleIdentitySDK"
         ),
         .target(
             name: "AdviceSlipSDK",
@@ -66,12 +75,12 @@ let package = Package(
         ),
         .target(
             name: "BusinessSDK",
-            dependencies: ["BusinessSDKCore", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
+            dependencies: ["BusinessSDKCore", "ToggleIdentitySDK", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
             path: "BusinessSDK/Sources/BusinessSDK"
         ),
         .testTarget(
             name: "BusinessSDKTests",
-            dependencies: ["BusinessSDK", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
+            dependencies: ["BusinessSDK", "ToggleIdentitySDK", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
             path: "BusinessSDK/Tests/BusinessSDKTests"
         )
     ]
