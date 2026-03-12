@@ -1,0 +1,68 @@
+name: RickAndMortySDK
+swift_module: RickAndMortySDK
+android_module: rick-and-morty-sdk
+android_package: com.multiplatformbusinesssdk.rickandmorty
+base_url: https://rickandmortyapi.com/api
+default_headers:
+  Accept: application/json
+repositories:
+  - name: CharacterRepository
+    methods:
+      - name: fetchCharacters
+        method: GET
+        path: /character
+        response: CharacterListResponse
+        query_params:
+          - name: page
+            type: Int
+            default: 1
+      - name: fetchCharacterDetail
+        method: GET
+        path: /character/{id}
+        response: CharacterDetailResponse
+        path_params:
+          - name: id
+            type: Int
+models:
+  - name: CharacterListResponse
+    fields:
+      - name: info
+        type: PageInfo
+      - name: results
+        type: "[CharacterSummary]"
+  - name: PageInfo
+    fields:
+      - name: count
+        type: Int
+      - name: pages
+        type: Int
+      - name: next
+        type: String
+      - name: prev
+        type: String
+  - name: CharacterSummary
+    fields:
+      - name: id
+        type: Int
+      - name: name
+        type: String
+      - name: status
+        type: String
+      - name: species
+        type: String
+      - name: image
+        type: String
+  - name: CharacterDetailResponse
+    fields:
+      - name: id
+        type: Int
+      - name: name
+        type: String
+      - name: status
+        type: String
+      - name: species
+        type: String
+      - name: gender
+        type: String
+      - name: image
+        type: String
