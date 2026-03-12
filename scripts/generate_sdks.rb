@@ -1079,19 +1079,13 @@ def generate_android_contract(contract)
 
     interface_methods = methods.map do |method|
       params = Array(method["path_params"]) + Array(method["query_params"])
-      signature = params.map do |param|
-        default = kotlin_default_value(param)
-        default ? "#{param["name"]}: #{kotlin_type(param["type"])} = #{default}" : "#{param["name"]}: #{kotlin_type(param["type"])}"
-      end.join(", ")
+      signature = params.map { |param| "#{param["name"]}: #{kotlin_type(param["type"])}" }.join(", ")
       "    suspend fun #{method.fetch("name")}(#{signature}): #{method.fetch("response")}"
     end.join("\n")
 
     impl_methods = methods.map do |method|
       params = Array(method["path_params"]) + Array(method["query_params"])
-      signature = params.map do |param|
-        default = kotlin_default_value(param)
-        default ? "#{param["name"]}: #{kotlin_type(param["type"])} = #{default}" : "#{param["name"]}: #{kotlin_type(param["type"])}"
-      end.join(", ")
+      signature = params.map { |param| "#{param["name"]}: #{kotlin_type(param["type"])}" }.join(", ")
       invocation = params.map { |param| "#{param["name"]} = #{param["name"]}" }.join(", ")
       request_name = "#{repository.fetch("name")}#{pascal_case(method.fetch("name"))}Request"
 

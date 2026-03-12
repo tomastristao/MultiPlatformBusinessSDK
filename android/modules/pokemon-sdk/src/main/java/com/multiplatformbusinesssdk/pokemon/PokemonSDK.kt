@@ -86,14 +86,14 @@ private class PokemonRepositoryFetchPokemonDetailRequest(private val name: Strin
 
 
 interface PokemonRepositoryProtocol {
-    suspend fun fetchPokemonList(limit: Int = 20, offset: Int = 0): PokemonListResponse
+    suspend fun fetchPokemonList(limit: Int, offset: Int): PokemonListResponse
     suspend fun fetchPokemonDetail(name: String): PokemonDetailResponse
 }
 
 class PokemonRepository(
     private val networkEngine: NetworkEngine
 ) : PokemonRepositoryProtocol {
-override suspend fun fetchPokemonList(limit: Int = 20, offset: Int = 0): PokemonListResponse {
+override suspend fun fetchPokemonList(limit: Int, offset: Int): PokemonListResponse {
     return networkEngine.request(PokemonRepositoryFetchPokemonListRequest(limit = limit, offset = offset))
 }
 

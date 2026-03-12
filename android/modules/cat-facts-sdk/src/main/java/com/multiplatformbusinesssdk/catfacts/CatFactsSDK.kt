@@ -68,14 +68,14 @@ private class CatFactRepositoryFetchRandomFactRequest() : ApiRequest<FactRespons
 
 
 interface CatFactRepositoryProtocol {
-    suspend fun fetchFacts(limit: Int = 10): FactListResponse
+    suspend fun fetchFacts(limit: Int): FactListResponse
     suspend fun fetchRandomFact(): FactResponse
 }
 
 class CatFactRepository(
     private val networkEngine: NetworkEngine
 ) : CatFactRepositoryProtocol {
-override suspend fun fetchFacts(limit: Int = 10): FactListResponse {
+override suspend fun fetchFacts(limit: Int): FactListResponse {
     return networkEngine.request(CatFactRepositoryFetchFactsRequest(limit = limit))
 }
 

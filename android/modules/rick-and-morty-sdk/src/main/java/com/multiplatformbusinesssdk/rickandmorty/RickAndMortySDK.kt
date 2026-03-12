@@ -112,14 +112,14 @@ private class CharacterRepositoryFetchCharacterDetailRequest(private val id: Int
 
 
 interface CharacterRepositoryProtocol {
-    suspend fun fetchCharacters(page: Int = 1): CharacterListResponse
+    suspend fun fetchCharacters(page: Int): CharacterListResponse
     suspend fun fetchCharacterDetail(id: Int): CharacterDetailResponse
 }
 
 class CharacterRepository(
     private val networkEngine: NetworkEngine
 ) : CharacterRepositoryProtocol {
-override suspend fun fetchCharacters(page: Int = 1): CharacterListResponse {
+override suspend fun fetchCharacters(page: Int): CharacterListResponse {
     return networkEngine.request(CharacterRepositoryFetchCharactersRequest(page = page))
 }
 
