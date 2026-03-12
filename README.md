@@ -15,9 +15,9 @@ Contract-driven SDK generation for iOS and Android business logic.
 
 The Android side is generated as a publishable GitHub Packages Maven package.
 
-- Umbrella artifact: `com.multiplatformbusinesssdk:business-sdk-android:<branch-slug>`
+- Umbrella artifact: `com.multiplatformbusinesssdk:business-sdk-android:<branch-slug>-SNAPSHOT`
 - Published from GitHub Actions after generation
-- Version matches the sanitized Git branch name
+- Version matches the sanitized Git branch name with a `-SNAPSHOT` suffix
 - Includes the generated Android modules through a single dependency
 
 ## Example contract
