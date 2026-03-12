@@ -1,6 +1,5 @@
 @_exported import BusinessSDKCore
-@_exported import PokemonSDK
 
 public enum BusinessSDKExports {
-    public static let contractModules = ["PokemonSDK"]
+    public static let contractModules: [String] = []
 }

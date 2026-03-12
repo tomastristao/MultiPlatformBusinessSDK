@@ -12,7 +12,7 @@ Contract-driven SDK generation for iOS and Android business logic.
 
 ## Example contract
 
-`contracts/pokemon.yml` defines a Pokemon repository with:
+The repo stays empty by default. A sample Pokemon contract is kept as a test fixture at `test/fixtures/pokemon.yml` and defines:
 
 - `fetchPokemonList(limit:offset:)`
 - `fetchPokemonDetail(name:)`
@@ -25,31 +25,37 @@ The generated repository API is intentionally aligned across Swift and Kotlin.
 ruby scripts/generate_sdks.rb
 ```
 
+With no files in `contracts/`, generation keeps the SDK empty and only emits the shared native networking core.
+
+## Tests
+
+```bash
+ruby test/generator_test.rb
+```
+
+This verifies both:
+
+- the empty baseline generates no feature SDKs
+- adding the Pokemon fixture contract generates repository output for Swift and Android
+
 ## iOS usage
 
 ```swift
 import BusinessSDK
 
-let engine = NetworkEngine(baseURL: PokemonSDKConfig.baseURL)
-let repository = PokemonRepository(networkEngine: engine)
-let page = try await repository.fetchPokemonList()
+let engine = NetworkEngine(baseURL: URL(string: "https://api.example.com")!)
 ```
 
 ## Android usage
 
 ```kotlin
 import com.multiplatformbusinesssdk.core.NetworkEngine
-import com.multiplatformbusinesssdk.pokemon.DefaultPokemonRepository
-import com.multiplatformbusinesssdk.pokemon.PokemonSDKConfig
-
-val engine = NetworkEngine(baseUrl = PokemonSDKConfig.baseUrl)
-val repository = DefaultPokemonRepository(engine)
-val page = repository.fetchPokemonList()
+val engine = NetworkEngine(baseUrl = "https://api.example.com")
 ```
 
 ## Add a new API
 
-1. Add a new YAML contract in `contracts/`.
+1. Add a new YAML contract in `contracts/`, for example by copying `test/fixtures/pokemon.yml`.
 2. Run `ruby scripts/generate_sdks.rb`.
 3. Commit the generated changes in `BusinessSDK/` and `android/`.
 

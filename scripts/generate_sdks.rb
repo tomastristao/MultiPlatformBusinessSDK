@@ -3,8 +3,8 @@
 require "fileutils"
 require "yaml"
 
-ROOT = File.expand_path("..", __dir__)
-CONTRACTS_DIR = File.join(ROOT, "contracts")
+ROOT = File.expand_path(ENV.fetch("SDK_ROOT", File.join(__dir__, "..")))
+CONTRACTS_DIR = File.expand_path(ENV.fetch("SDK_CONTRACTS_DIR", File.join(ROOT, "contracts")))
 IOS_DIR = File.join(ROOT, "BusinessSDK")
 IOS_SOURCES_DIR = File.join(IOS_DIR, "Sources")
 IOS_TESTS_DIR = File.join(IOS_DIR, "Tests", "BusinessSDKTests")
@@ -34,6 +34,10 @@ end
 def write_file(path, content)
   ensure_dir(File.dirname(path))
   File.write(path, content)
+end
+
+def format_dependency_array(entries)
+  "[#{entries.join(', ')}]"
 end
 
 def list_type?(type)
@@ -179,6 +183,8 @@ def generate_package_swift(contracts)
 
   test_dependencies = ["\"BusinessSDK\""] + contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }
 
+  business_sdk_dependencies = ["\"BusinessSDKCore\""] + contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }
+
   <<~SWIFT
     // swift-tools-version: 6.2
 
@@ -200,11 +206,11 @@ def generate_package_swift(contracts)
     #{contract_targets.map { |line| "        #{line}" }.join("\n")}
             .target(
                 name: "BusinessSDK",
-                dependencies: ["BusinessSDKCore", #{contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }.join(", ")}]
+                dependencies: #{format_dependency_array(business_sdk_dependencies)}
             ),
             .testTarget(
                 name: "BusinessSDKTests",
-                dependencies: [#{test_dependencies.join(", ")}]
+                dependencies: #{format_dependency_array(test_dependencies)}
             )
         ]
     )
@@ -506,24 +512,27 @@ def generate_swift_umbrella(contracts)
   exports = (["BusinessSDKCore"] + contracts.map { |contract| contract.fetch("swift_module") }).map do |module_name|
     "@_exported import #{module_name}"
   end.join("\n")
+  module_names = format_dependency_array(contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" })
 
   <<~SWIFT
     #{exports}
 
     public enum BusinessSDKExports {
-        public static let contractModules = [#{contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }.join(", ")}]
+        public static let contractModules: [String] = #{module_names}
     }
   SWIFT
 end
 
 def generate_tests(contracts)
+  expected_modules = format_dependency_array(contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" })
+
   <<~SWIFT
     import XCTest
     @testable import BusinessSDK
 
     final class BusinessSDKTests: XCTestCase {
         func testGeneratedModulesAreRegistered() {
-            XCTAssertEqual(BusinessSDKExports.contractModules, [#{contracts.map { |contract| "\"#{contract.fetch("swift_module")}\"" }.join(", ")}])
+            XCTAssertEqual(BusinessSDKExports.contractModules, #{expected_modules})
         }
     }
   SWIFT
@@ -794,7 +803,6 @@ def generate_android_contract(contract)
   module_dir = File.join(ANDROID_MODULES_DIR, contract.fetch("android_module"))
   package_parts = contract.fetch("android_package").split(".")
   package_dir = File.join(module_dir, "src", "main", "java", *package_parts)
-  dependency_module = contract.fetch("android_module")
 
   build_gradle = <<~KOTLIN
     plugins {
@@ -965,7 +973,6 @@ def generate_android_root_build
 end
 
 contracts = read_contracts
-abort("No contracts found in #{CONTRACTS_DIR}") if contracts.empty?
 
 cleanup_generated_directories(contracts)
 
