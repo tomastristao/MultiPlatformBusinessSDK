@@ -1,0 +1,32 @@
+name: AdviceSlipSDK
+swift_module: AdviceSlipSDK
+android_module: advice-slip-sdk
+android_package: com.multiplatformbusinesssdk.adviceslip
+base_url: https://api.adviceslip.com
+default_headers:
+  Accept: application/json
+repositories:
+  - name: AdviceRepository
+    methods:
+      - name: fetchRandomAdvice
+        method: GET
+        path: /advice
+        response: AdviceEnvelope
+      - name: fetchAdviceById
+        method: GET
+        path: /advice/{id}
+        response: AdviceEnvelope
+        path_params:
+          - name: id
+            type: Int
+models:
+  - name: AdviceEnvelope
+    fields:
+      - name: slip
+        type: AdviceSlip
+  - name: AdviceSlip
+    fields:
+      - name: id
+        type: Int
+      - name: advice
+        type: String
