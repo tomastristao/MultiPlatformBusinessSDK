@@ -95,7 +95,7 @@ private class CharacterRepositoryFetchCharactersRequest(private val page: Int = 
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): CharacterListResponse =
-        CharacterListResponse.fromJson(org.json.JSONObject(payload))
+        CharacterListResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 private class CharacterRepositoryFetchCharacterDetailRequest(private val id: Int) : ApiRequest<CharacterDetailResponse> {
@@ -107,7 +107,7 @@ private class CharacterRepositoryFetchCharacterDetailRequest(private val id: Int
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): CharacterDetailResponse =
-        CharacterDetailResponse.fromJson(org.json.JSONObject(payload))
+        CharacterDetailResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 

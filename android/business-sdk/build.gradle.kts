@@ -32,6 +32,7 @@
         api(project(":sdk-core"))
         api(project(":modules:advice-slip-sdk"))
         api(project(":modules:cat-facts-sdk"))
+        api(project(":modules:open-brewery-sdk"))
         api(project(":modules:pokemon-sdk"))
         api(project(":modules:rick-and-morty-sdk"))
     }

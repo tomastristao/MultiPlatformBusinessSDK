@@ -98,11 +98,11 @@
         {
           "name": "pokemon-sdk-android-main-SNAPSHOT-sources.jar",
           "url": "pokemon-sdk-android-main-SNAPSHOT-sources.jar",
-          "size": 1791,
-          "sha512": "fdc3a8bae2093c299b790e5d8c9b2c58ea17f0f9be9524334a9f5a3d1bcca8d403548fa433a19b725344e88125b226510e8a24ab1ac7ebc890ca3a94396cf34f",
-          "sha256": "332d2cb17ca0dc745c7a3737ba98cd0535889241752a3e7711fb76748e7ca065",
-          "sha1": "285409ee3c1ebecb30eb88ce725df85c269a3ecd",
-          "md5": "bbfe5b057a9b7868d4c01be01d5389dd"
+          "size": 1796,
+          "sha512": "e59f49eb08a59fe9dc26bca9ef59b649fe282628e358d3269abaf5dfe6fbe4f3ac13b288e9eb36560845abb911502d35f96a44164f367ccd3925b6c815841dd7",
+          "sha256": "422d267708545feae8837c8bc37b0fc0185876bd45ea1700c69703b031941d62",
+          "sha1": "7a71b21e5956147bdec1bb07775002b58c696dd9",
+          "md5": "76db3536edbdeba1fd7a182df4f809d6"
         }
       ]
     }

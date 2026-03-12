@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.multiplatformbusinesssdk</groupId>
+  <artifactId>open-brewery-sdk-android</artifactId>
+  <versioning>
+    <latest>main-SNAPSHOT</latest>
+    <versions>
+      <version>main-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20260312150218</lastUpdated>
+  </versioning>
+</metadata>

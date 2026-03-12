@@ -22,6 +22,10 @@ let package = Package(
             targets: ["CatFactsSDK"]
         ),
         .library(
+            name: "OpenBrewerySDK",
+            targets: ["OpenBrewerySDK"]
+        ),
+        .library(
             name: "PokemonSDK",
             targets: ["PokemonSDK"]
         ),
@@ -46,6 +50,11 @@ let package = Package(
                 path: "BusinessSDK/Sources/CatFactsSDK"
         ),
         .target(
+            name: "OpenBrewerySDK",
+            dependencies: ["BusinessSDKCore"],
+                path: "BusinessSDK/Sources/OpenBrewerySDK"
+        ),
+        .target(
             name: "PokemonSDK",
             dependencies: ["BusinessSDKCore"],
                 path: "BusinessSDK/Sources/PokemonSDK"
@@ -57,12 +66,12 @@ let package = Package(
         ),
         .target(
             name: "BusinessSDK",
-            dependencies: ["BusinessSDKCore", "AdviceSlipSDK", "CatFactsSDK", "PokemonSDK", "RickAndMortySDK"],
+            dependencies: ["BusinessSDKCore", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
             path: "BusinessSDK/Sources/BusinessSDK"
         ),
         .testTarget(
             name: "BusinessSDKTests",
-            dependencies: ["BusinessSDK", "AdviceSlipSDK", "CatFactsSDK", "PokemonSDK", "RickAndMortySDK"],
+            dependencies: ["BusinessSDK", "AdviceSlipSDK", "CatFactsSDK", "OpenBrewerySDK", "PokemonSDK", "RickAndMortySDK"],
             path: "BusinessSDK/Tests/BusinessSDKTests"
         )
     ]

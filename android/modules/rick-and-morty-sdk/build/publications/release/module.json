@@ -98,11 +98,11 @@
         {
           "name": "rick-and-morty-sdk-android-main-SNAPSHOT-sources.jar",
           "url": "rick-and-morty-sdk-android-main-SNAPSHOT-sources.jar",
-          "size": 1909,
-          "sha512": "b32630d322a8798121a5883bd80244fdbfdf5d136c2c21b2c72dd00d3d482f4a88211945354f23c48916ffb2597dda1a31b31cb3bf72d5489422c01aedae5ad8",
-          "sha256": "c916972b211ebc08864ef1997e9cca86e26b90639295cebda1792b8ff0b67bc0",
-          "sha1": "57d645f9e1a1955b1c4ceeb08509991f077ba1d1",
-          "md5": "48537f3cc0a8fba727c76cba1bd0e4ff"
+          "size": 1915,
+          "sha512": "3d2968104be0db875cb13dfdcd408bf50268775492f99476ae3a28f2378937ef2d463804a02c93b01798545aefb6ae674dc0ba020d1cab261450be8a2bba11db",
+          "sha256": "ac9cc5b331158ba49f4460dd8bc5f23632052bdee1135a5ade78ec8cab33a431",
+          "sha1": "411f31bbe37d95426476422efc08af203f47b5d3",
+          "md5": "32f4e4802838a299b79efa559d4992d7"
         }
       ]
     }

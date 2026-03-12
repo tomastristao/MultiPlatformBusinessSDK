@@ -51,7 +51,7 @@ private class CatFactRepositoryFetchFactsRequest(private val limit: Int = 10) : 
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): FactListResponse =
-        FactListResponse.fromJson(org.json.JSONObject(payload))
+        FactListResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 private class CatFactRepositoryFetchRandomFactRequest() : ApiRequest<FactResponse> {
@@ -63,7 +63,7 @@ private class CatFactRepositoryFetchRandomFactRequest() : ApiRequest<FactRespons
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): FactResponse =
-        FactResponse.fromJson(org.json.JSONObject(payload))
+        FactResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 
