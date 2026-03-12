@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.multiplatformbusinesssdk",
+    "module": "rick-and-morty-sdk-android",
+    "version": "main",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "rick-and-morty-sdk-android-main.aar",
+          "url": "rick-and-morty-sdk-android-main.aar",
+          "size": 20640,
+          "sha512": "164bcedd748564c1f7b380dc66da7c2e443b3c6e087434f5198eea700b3cd9012e5e55c274dcc047a817a34687c79baa30386c893cc20d22bc2e9e61aa952e7e",
+          "sha256": "21b102269bf6dc3b9b7a30776ed2594fab1fbbb1e0bfe7572b1c4f67808cdacb",
+          "sha1": "a80954119f277663ba9ec0486ee8dedb2e72db92",
+          "md5": "db7ee63c9df6768baf7b077f14038bfc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "business-sdk-android-core",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "rick-and-morty-sdk-android-main.aar",
+          "url": "rick-and-morty-sdk-android-main.aar",
+          "size": 20640,
+          "sha512": "164bcedd748564c1f7b380dc66da7c2e443b3c6e087434f5198eea700b3cd9012e5e55c274dcc047a817a34687c79baa30386c893cc20d22bc2e9e61aa952e7e",
+          "sha256": "21b102269bf6dc3b9b7a30776ed2594fab1fbbb1e0bfe7572b1c4f67808cdacb",
+          "sha1": "a80954119f277663ba9ec0486ee8dedb2e72db92",
+          "md5": "db7ee63c9df6768baf7b077f14038bfc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "rick-and-morty-sdk-android-main-sources.jar",
+          "url": "rick-and-morty-sdk-android-main-sources.jar",
+          "size": 1909,
+          "sha512": "b32630d322a8798121a5883bd80244fdbfdf5d136c2c21b2c72dd00d3d482f4a88211945354f23c48916ffb2597dda1a31b31cb3bf72d5489422c01aedae5ad8",
+          "sha256": "c916972b211ebc08864ef1997e9cca86e26b90639295cebda1792b8ff0b67bc0",
+          "sha1": "57d645f9e1a1955b1c4ceeb08509991f077ba1d1",
+          "md5": "48537f3cc0a8fba727c76cba1bd0e4ff"
+        }
+      ]
+    }
+  ]
+}

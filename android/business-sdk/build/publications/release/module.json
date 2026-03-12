@@ -1,0 +1,152 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.multiplatformbusinesssdk",
+    "module": "business-sdk-android",
+    "version": "main",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "business-sdk-android-core",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "cat-facts-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "pokemon-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "rick-and-morty-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "business-sdk-android-main.aar",
+          "url": "business-sdk-android-main.aar",
+          "size": 1536,
+          "sha512": "f28bbe109919f6c52da060b45f71680104017378edceba8b91ef43ebd051166f48d20251ac53cbb0e8f834c51e139c7aa9cd6e6c930163f85ebf4e8202713ed5",
+          "sha256": "a5ded198e00527bc922e08a29f5a7806832df5af70cbd753327fb93fc50c3b31",
+          "sha1": "4c042bc84365f965234441747da231041b79425b",
+          "md5": "448dad1be0c508d6367f0beed6574c1b"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "business-sdk-android-core",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "cat-facts-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "pokemon-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "rick-and-morty-sdk-android",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "business-sdk-android-main.aar",
+          "url": "business-sdk-android-main.aar",
+          "size": 1536,
+          "sha512": "f28bbe109919f6c52da060b45f71680104017378edceba8b91ef43ebd051166f48d20251ac53cbb0e8f834c51e139c7aa9cd6e6c930163f85ebf4e8202713ed5",
+          "sha256": "a5ded198e00527bc922e08a29f5a7806832df5af70cbd753327fb93fc50c3b31",
+          "sha1": "4c042bc84365f965234441747da231041b79425b",
+          "md5": "448dad1be0c508d6367f0beed6574c1b"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "business-sdk-android-main-sources.jar",
+          "url": "business-sdk-android-main-sources.jar",
+          "size": 723,
+          "sha512": "b0450c6821cfbfa9b4f366adb8d7dd9c7f0419b431f9b9417ad09c2bd7ee7efd90e8c4656d212d49d1a36e06eaf908ad4113bb4259513dfa7ba87e636f87490e",
+          "sha256": "5d66a7e609a0723b9b53c9747c41d9e415a5e5c625439eac379f3c976fe2e552",
+          "sha1": "05039ba8f3c63bf47df9cdd7772b05f0fe30e7c7",
+          "md5": "73e51ac02191db79726a0ea6388aabda"
+        }
+      ]
+    }
+  ]
+}

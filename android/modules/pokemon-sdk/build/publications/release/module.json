@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.multiplatformbusinesssdk",
+    "module": "pokemon-sdk-android",
+    "version": "main",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pokemon-sdk-android-main.aar",
+          "url": "pokemon-sdk-android-main.aar",
+          "size": 16862,
+          "sha512": "9180756b09911f1ced0dc4dd9185413d828ef224800406ca04adc4db4806d44dc9b3019b75baad0b728b1de40a9208ae490958bf8032565f32a8a58dbda89819",
+          "sha256": "a23fd7cf2f97c865fa1732090696ddb71cc36fe5accf0c06271ffe142f61e1b2",
+          "sha1": "1c89deb755ae01655dd607a8bb143f51c6db90c1",
+          "md5": "e8377d4d6afd2067febfde40bb2148ef"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "business-sdk-android-core",
+          "version": {
+            "requires": "main"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "pokemon-sdk-android-main.aar",
+          "url": "pokemon-sdk-android-main.aar",
+          "size": 16862,
+          "sha512": "9180756b09911f1ced0dc4dd9185413d828ef224800406ca04adc4db4806d44dc9b3019b75baad0b728b1de40a9208ae490958bf8032565f32a8a58dbda89819",
+          "sha256": "a23fd7cf2f97c865fa1732090696ddb71cc36fe5accf0c06271ffe142f61e1b2",
+          "sha1": "1c89deb755ae01655dd607a8bb143f51c6db90c1",
+          "md5": "e8377d4d6afd2067febfde40bb2148ef"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "pokemon-sdk-android-main-sources.jar",
+          "url": "pokemon-sdk-android-main-sources.jar",
+          "size": 1791,
+          "sha512": "fdc3a8bae2093c299b790e5d8c9b2c58ea17f0f9be9524334a9f5a3d1bcca8d403548fa433a19b725344e88125b226510e8a24ab1ac7ebc890ca3a94396cf34f",
+          "sha256": "332d2cb17ca0dc745c7a3737ba98cd0535889241752a3e7711fb76748e7ca065",
+          "sha1": "285409ee3c1ebecb30eb88ce725df85c269a3ecd",
+          "md5": "bbfe5b057a9b7868d4c01be01d5389dd"
+        }
+      ]
+    }
+  ]
+}

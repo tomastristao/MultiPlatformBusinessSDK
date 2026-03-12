@@ -1,0 +1,103 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.multiplatformbusinesssdk",
+    "module": "business-sdk-android-core",
+    "version": "main",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "business-sdk-android-core-main.aar",
+          "url": "business-sdk-android-core-main.aar",
+          "size": 22804,
+          "sha512": "1eba7e7f2c893ca5b1d80847c76f448524754a40c4b2f74c1c67b16067e6ca3e88fcc9c2ca7f00bff9dcbbc47533154c0cfff451e5932a8f69cb10102b41ca01",
+          "sha256": "f743d9c36ccf558597411fdfc6011a4dbace12f74f18157e248e92dd375add41",
+          "sha1": "4e857b127749f54b9bdfa13e9755f92fb94a0c69",
+          "md5": "78939ab7b1352e2210b30885ed66dc73"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "business-sdk-android-core-main.aar",
+          "url": "business-sdk-android-core-main.aar",
+          "size": 22804,
+          "sha512": "1eba7e7f2c893ca5b1d80847c76f448524754a40c4b2f74c1c67b16067e6ca3e88fcc9c2ca7f00bff9dcbbc47533154c0cfff451e5932a8f69cb10102b41ca01",
+          "sha256": "f743d9c36ccf558597411fdfc6011a4dbace12f74f18157e248e92dd375add41",
+          "sha1": "4e857b127749f54b9bdfa13e9755f92fb94a0c69",
+          "md5": "78939ab7b1352e2210b30885ed66dc73"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "business-sdk-android-core-main-sources.jar",
+          "url": "business-sdk-android-core-main-sources.jar",
+          "size": 2435,
+          "sha512": "13a41ab071a6a986cbb74a8120847adab03de1ef14e6fc1daf54dc66d0bfdb2af5dde2cc1d4f1734fd096f11ea43a37cf6cd715476854c6571371e0b38fc7c88",
+          "sha256": "684816c9701a17f02953a8a4c0fd18d75ef51119667c3ea85c822af98f1b994b",
+          "sha1": "dbbd684727465a099dcdacc854649b71e98287fe",
+          "md5": "8b3b6009d8c36af98aaf2ba0de660a5f"
+        }
+      ]
+    }
+  ]
+}

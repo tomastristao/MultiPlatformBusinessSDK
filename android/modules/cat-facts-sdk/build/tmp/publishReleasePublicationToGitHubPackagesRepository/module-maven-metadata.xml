@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.multiplatformbusinesssdk</groupId>
+  <artifactId>cat-facts-sdk-android</artifactId>
+  <versioning>
+    <latest>main</latest>
+    <release>main</release>
+    <versions>
+      <version>main</version>
+    </versions>
+    <lastUpdated>20260312113726</lastUpdated>
+  </versioning>
+</metadata>
