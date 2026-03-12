@@ -8,7 +8,7 @@ default_headers:
 repositories:
   - name: AdviceRepository
     methods:
-      - name: fetchRandomAdviceTEST
+      - name: fetchRandomAdvice
         method: GET
         path: /advice
         response: AdviceEnvelope

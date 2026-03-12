@@ -736,6 +736,57 @@ def primitive_array_accessor(type, array_name, index_name)
   end
 end
 
+def kotlin_json_value(type, source)
+  if list_type?(type)
+    inner = unwrap_list(type)
+    item_parser = if PRIMITIVE_KOTLIN_TYPES.key?(inner)
+      primitive_array_accessor(inner, "items", "index")
+    else
+      "#{inner}.fromJson(items.getJSONObject(index))"
+    end
+
+    return <<~KOTLIN.strip
+      run {
+          val items = #{source}.let { payload ->
+              when (payload) {
+                  is org.json.JSONArray -> payload
+                  is org.json.JSONObject -> payload.getJSONArray("data")
+                  else -> throw IllegalArgumentException("Unsupported JSON payload")
+              }
+          }
+          buildList {
+              for (index in 0 until items.length()) {
+                  add(#{item_parser})
+              }
+          }
+      }
+    KOTLIN
+  end
+
+  case type
+  when "String"
+    "#{source}.toString()"
+  when "Int"
+    "#{source} as Int"
+  when "Double"
+    "#{source} as Double"
+  when "Bool"
+    "#{source} as Boolean"
+  else
+    "#{type}.fromJson(#{source} as org.json.JSONObject)"
+  end
+end
+
+def kotlin_parse_expression(type, payload_name = "payload")
+  if list_type?(type)
+    kotlin_json_value(type, "org.json.JSONArray(#{payload_name})")
+  elsif PRIMITIVE_KOTLIN_TYPES.key?(type)
+    kotlin_json_value(type, "org.json.JSONObject().get(\"value\")")
+  else
+    kotlin_json_value(type, "org.json.JSONObject(#{payload_name})")
+  end
+end
+
 def kotlin_model_field_parser(field)
   type = field.fetch("type")
   name = field.fetch("name")
@@ -1059,7 +1110,7 @@ def generate_android_contract(contract)
       request_name = "#{repository.fetch("name")}#{pascal_case(method.fetch("name"))}Request"
 
       <<~KOTLIN
-        private class #{request_name}(#{ctor_params}) : ApiRequest<#{method.fetch("response")}> {
+        private class #{request_name}(#{ctor_params}) : ApiRequest<#{kotlin_type(method.fetch("response"))}> {
             override val path: String = #{kotlin_path_expression(method.fetch("path"), method["path_params"])}
             override val method: HttpMethod = HttpMethod.#{method.fetch("method")}
             override val body: ByteArray? = null
@@ -1067,8 +1118,8 @@ def generate_android_contract(contract)
             override val query: Map<String, String> = #{render_kotlin_query_map(method["query_params"])}
             override val requiresAuthorization: Boolean = #{method.fetch("requires_authorization", false) ? "true" : "false"}
 
-            override fun parse(payload: String): #{method.fetch("response")} =
-                #{method.fetch("response")}.fromJson(org.json.JSONObject(payload))
+            override fun parse(payload: String): #{kotlin_type(method.fetch("response"))} =
+                #{kotlin_parse_expression(method.fetch("response"))}
         }
       KOTLIN
     end
@@ -1080,7 +1131,7 @@ def generate_android_contract(contract)
     interface_methods = methods.map do |method|
       params = Array(method["path_params"]) + Array(method["query_params"])
       signature = params.map { |param| "#{param["name"]}: #{kotlin_type(param["type"])}" }.join(", ")
-      "    suspend fun #{method.fetch("name")}(#{signature}): #{method.fetch("response")}"
+      "    suspend fun #{method.fetch("name")}(#{signature}): #{kotlin_type(method.fetch("response"))}"
     end.join("\n")
 
     impl_methods = methods.map do |method|
@@ -1090,7 +1141,7 @@ def generate_android_contract(contract)
       request_name = "#{repository.fetch("name")}#{pascal_case(method.fetch("name"))}Request"
 
       <<~KOTLIN
-        override suspend fun #{method.fetch("name")}(#{signature}): #{method.fetch("response")} {
+        override suspend fun #{method.fetch("name")}(#{signature}): #{kotlin_type(method.fetch("response"))} {
             return networkEngine.request(#{request_name}(#{invocation}))
         }
       KOTLIN
