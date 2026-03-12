@@ -17,6 +17,10 @@ let package = Package(
             name: "PokemonSDK",
             targets: ["PokemonSDK"]
         ),
+        .library(
+            name: "RickAndMortySDK",
+            targets: ["RickAndMortySDK"]
+        ),
     ],
     targets: [
         .target(
@@ -27,12 +31,16 @@ let package = Package(
             dependencies: ["BusinessSDKCore"]
         ),
         .target(
+            name: "RickAndMortySDK",
+            dependencies: ["BusinessSDKCore"]
+        ),
+        .target(
             name: "BusinessSDK",
-            dependencies: ["BusinessSDKCore", "PokemonSDK"]
+            dependencies: ["BusinessSDKCore", "PokemonSDK", "RickAndMortySDK"]
         ),
         .testTarget(
             name: "BusinessSDKTests",
-            dependencies: ["BusinessSDK", "PokemonSDK"]
+            dependencies: ["BusinessSDK", "PokemonSDK", "RickAndMortySDK"]
         )
     ]
 )

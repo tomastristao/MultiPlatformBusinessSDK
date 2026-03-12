@@ -17,4 +17,6 @@ dependencyResolutionManagement {
 rootProject.name = "MultiPlatformBusinessSDK"
 include(":sdk-core")
 include(":modules:pokemon-sdk")
+include(":modules:rick-and-morty-sdk")
 project(":modules:pokemon-sdk").projectDir = file("modules/pokemon-sdk")
+project(":modules:rick-and-morty-sdk").projectDir = file("modules/rick-and-morty-sdk")
