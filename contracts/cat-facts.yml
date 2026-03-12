@@ -1,0 +1,35 @@
+name: CatFactsSDK
+swift_module: CatFactsSDK
+android_module: cat-facts-sdk
+android_package: com.multiplatformbusinesssdk.catfacts
+base_url: https://catfact.ninja
+default_headers:
+  Accept: application/json
+repositories:
+  - name: CatFactRepository
+    methods:
+      - name: fetchFacts
+        method: GET
+        path: /facts
+        response: FactListResponse
+        query_params:
+          - name: limit
+            type: Int
+            default: 10
+      - name: fetchRandomFact
+        method: GET
+        path: /fact
+        response: FactResponse
+models:
+  - name: FactListResponse
+    fields:
+      - name: current_page
+        type: Int
+      - name: data
+        type: "[FactResponse]"
+  - name: FactResponse
+    fields:
+      - name: fact
+        type: String
+      - name: length
+        type: Int
