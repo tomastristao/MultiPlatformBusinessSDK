@@ -46,6 +46,13 @@
         },
         {
           "group": "com.multiplatformbusinesssdk",
+          "module": "open-brewery-sdk-android",
+          "version": {
+            "requires": "main-SNAPSHOT"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
           "module": "pokemon-sdk-android",
           "version": {
             "requires": "main-SNAPSHOT"
@@ -104,6 +111,13 @@
         {
           "group": "com.multiplatformbusinesssdk",
           "module": "cat-facts-sdk-android",
+          "version": {
+            "requires": "main-SNAPSHOT"
+          }
+        },
+        {
+          "group": "com.multiplatformbusinesssdk",
+          "module": "open-brewery-sdk-android",
           "version": {
             "requires": "main-SNAPSHOT"
           }

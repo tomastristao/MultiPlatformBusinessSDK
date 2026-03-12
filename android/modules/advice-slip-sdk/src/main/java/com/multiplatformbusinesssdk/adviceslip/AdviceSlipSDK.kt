@@ -33,7 +33,7 @@ data class AdviceSlip(
 }
 
 
-private class AdviceRepositoryFetchRandomAdviceTESTRequest() : ApiRequest<AdviceEnvelope> {
+private class AdviceRepositoryFetchRandomAdviceRequest() : ApiRequest<AdviceEnvelope> {
     override val path: String = "/advice"
     override val method: HttpMethod = HttpMethod.GET
     override val body: ByteArray? = null
@@ -42,7 +42,7 @@ private class AdviceRepositoryFetchRandomAdviceTESTRequest() : ApiRequest<Advice
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): AdviceEnvelope =
-        AdviceEnvelope.fromJson(org.json.JSONObject(payload))
+        AdviceEnvelope.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 private class AdviceRepositoryFetchAdviceByIdRequest(private val id: Int) : ApiRequest<AdviceEnvelope> {
@@ -54,20 +54,20 @@ private class AdviceRepositoryFetchAdviceByIdRequest(private val id: Int) : ApiR
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): AdviceEnvelope =
-        AdviceEnvelope.fromJson(org.json.JSONObject(payload))
+        AdviceEnvelope.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 
 interface AdviceRepositoryProtocol {
-    suspend fun fetchRandomAdviceTEST(): AdviceEnvelope
+    suspend fun fetchRandomAdvice(): AdviceEnvelope
     suspend fun fetchAdviceById(id: Int): AdviceEnvelope
 }
 
 class AdviceRepository(
     private val networkEngine: NetworkEngine
 ) : AdviceRepositoryProtocol {
-override suspend fun fetchRandomAdviceTEST(): AdviceEnvelope {
-    return networkEngine.request(AdviceRepositoryFetchRandomAdviceTESTRequest())
+override suspend fun fetchRandomAdvice(): AdviceEnvelope {
+    return networkEngine.request(AdviceRepositoryFetchRandomAdviceRequest())
 }
 
 override suspend fun fetchAdviceById(id: Int): AdviceEnvelope {

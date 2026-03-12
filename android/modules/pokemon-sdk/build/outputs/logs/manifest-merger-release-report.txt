@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml:2:13-83
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml:2:13-83
+ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml:2:13-83
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml:2:13-83
 	package
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml
 	xmlns:android
-		ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml:2:23-81
+		ADDED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml:2:23-81
 uses-sdk
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml reason: use-sdk injection requested
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml
-INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml reason: use-sdk injection requested
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml
+INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml
 	android:targetSdkVersion
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml
 	android:minSdkVersion
-		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest996654174668424262.xml
+		INJECTED from /Users/runner/work/MultiPlatformBusinessSDK/MultiPlatformBusinessSDK/android/modules/pokemon-sdk/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest11638628967449350717.xml

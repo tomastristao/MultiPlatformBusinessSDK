@@ -34,6 +34,12 @@
     </dependency>
     <dependency>
       <groupId>com.multiplatformbusinesssdk</groupId>
+      <artifactId>open-brewery-sdk-android</artifactId>
+      <version>main-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.multiplatformbusinesssdk</groupId>
       <artifactId>pokemon-sdk-android</artifactId>
       <version>main-SNAPSHOT</version>
       <scope>compile</scope>

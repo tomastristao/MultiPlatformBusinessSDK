@@ -69,7 +69,7 @@ private class PokemonRepositoryFetchPokemonListRequest(private val limit: Int = 
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): PokemonListResponse =
-        PokemonListResponse.fromJson(org.json.JSONObject(payload))
+        PokemonListResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 private class PokemonRepositoryFetchPokemonDetailRequest(private val name: String) : ApiRequest<PokemonDetailResponse> {
@@ -81,7 +81,7 @@ private class PokemonRepositoryFetchPokemonDetailRequest(private val name: Strin
     override val requiresAuthorization: Boolean = false
 
     override fun parse(payload: String): PokemonDetailResponse =
-        PokemonDetailResponse.fromJson(org.json.JSONObject(payload))
+        PokemonDetailResponse.fromJson(org.json.JSONObject(payload) as org.json.JSONObject)
 }
 
 
