@@ -15,14 +15,19 @@ permissions:
 jobs:
   generate:
     runs-on: macos-latest
-    env:
-      SDK_VERSION: 0.1.${{ github.run_number }}-${{ github.run_attempt }}
 
     steps:
       - name: "📥 Checkout repository"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: "🏷️ Resolve package version"
+        id: version
+        run: |
+          RAW_REF="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          SANITIZED="$(echo "$RAW_REF" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]/-/g')"
+          echo "sdk_version=$SANITIZED" >> "$GITHUB_OUTPUT"
 
       - name: "🧾 Detect changed contracts"
         id: changes
@@ -60,7 +65,7 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          SDK_VERSION: ${{ env.SDK_VERSION }}
+          SDK_VERSION: ${{ steps.version.outputs.sdk_version }}
         run: ./gradlew publish
 
       - name: "📝 Publish workflow summary"
@@ -115,7 +120,8 @@ jobs:
             echo "## 🏗️ Generated outputs"
             echo "- 🍎 Swift package: \`BusinessSDK/\`"
             echo "- 🤖 Android modules: \`android/\`"
-            echo "- 📦 Android GitHub package: \`com.multiplatformbusinesssdk:business-sdk-android:${{ env.SDK_VERSION }}\`"
+            echo "- 🏷️ Branch package version: \`${{ steps.version.outputs.sdk_version }}\`"
+            echo "- 📦 Android GitHub package: \`com.multiplatformbusinesssdk:business-sdk-android:${{ steps.version.outputs.sdk_version }}\`"
             echo "- 📚 Documentation: \`docs/generated/SDK_CATALOG.md\`"
           } >> "$GITHUB_STEP_SUMMARY"
 

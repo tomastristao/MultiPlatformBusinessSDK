@@ -264,7 +264,7 @@ def generate_contract_docs(contracts)
     - Total contracts: `#{contracts.size}`
     - Generated Swift package: `BusinessSDK/`
     - Generated Android modules: `android/`
-    - Android GitHub package: `#{ANDROID_GROUP_ID}:business-sdk-android:$SDK_VERSION`
+    - Android GitHub package: `#{ANDROID_GROUP_ID}:business-sdk-android:<branch-slug>`
 
     ## Android Consumption
 
@@ -286,7 +286,7 @@ def generate_contract_docs(contracts)
 
     ```kotlin
     dependencies {
-        implementation("#{ANDROID_GROUP_ID}:business-sdk-android:$SDK_VERSION")
+        implementation("#{ANDROID_GROUP_ID}:business-sdk-android:<branch-slug>")
     }
     ```
 
