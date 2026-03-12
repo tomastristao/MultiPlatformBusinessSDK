@@ -5,7 +5,7 @@
     }
 
     android {
-        namespace = "com.multiplatformbusinesssdk.core"
+        namespace = "com.multiplatformbusinesssdk.catfacts"
         compileSdk = 34
 
         defaultConfig {
@@ -23,6 +23,7 @@
     }
 
     dependencies {
+        implementation(project(":sdk-core"))
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
 
@@ -38,12 +39,12 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.multiplatformbusinesssdk"
-                artifactId = "business-sdk-android-core"
+                artifactId = "cat-facts-sdk-android"
                 version = System.getenv("SDK_VERSION") ?: "0.1.0-SNAPSHOT"
 
                 pom {
-                    name.set("Business SDK Android Core")
-                    description.set("Core networking primitives for generated Android SDK modules.")
+                    name.set("CatFactsSDK Android")
+                    description.set("Generated Android business SDK for CatFactsSDK.")
                 }
             }
         }

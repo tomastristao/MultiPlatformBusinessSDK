@@ -10,10 +10,13 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   generate:
     runs-on: macos-latest
+    env:
+      SDK_VERSION: 0.1.${{ github.run_number }}-${{ github.run_attempt }}
 
     steps:
       - name: "📥 Checkout repository"
@@ -41,6 +44,24 @@ jobs:
 
       - name: "⚙️ Generate SDKs and docs"
         run: ruby scripts/generate_sdks.rb
+
+      - name: "🧰 Setup Gradle"
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.10.2
+
+      - name: "🛠️ Generate Gradle wrapper"
+        working-directory: android
+        run: gradle wrapper --gradle-version 8.10.2
+
+      - name: "📦 Publish Android GitHub package"
+        working-directory: android
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SDK_VERSION: ${{ env.SDK_VERSION }}
+        run: ./gradlew publish
 
       - name: "📝 Publish workflow summary"
         run: |
@@ -94,6 +115,7 @@ jobs:
             echo "## 🏗️ Generated outputs"
             echo "- 🍎 Swift package: \`BusinessSDK/\`"
             echo "- 🤖 Android modules: \`android/\`"
+            echo "- 📦 Android GitHub package: \`com.multiplatformbusinesssdk:business-sdk-android:${{ env.SDK_VERSION }}\`"
             echo "- 📚 Documentation: \`docs/generated/SDK_CATALOG.md\`"
           } >> "$GITHUB_STEP_SUMMARY"
 

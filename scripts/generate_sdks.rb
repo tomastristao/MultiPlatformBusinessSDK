@@ -10,7 +10,9 @@ IOS_SOURCES_DIR = File.join(IOS_DIR, "Sources")
 IOS_TESTS_DIR = File.join(IOS_DIR, "Tests", "BusinessSDKTests")
 ANDROID_DIR = File.join(ROOT, "android")
 ANDROID_MODULES_DIR = File.join(ANDROID_DIR, "modules")
+ANDROID_UMBRELLA_DIR = File.join(ANDROID_DIR, "business-sdk")
 DOCS_DIR = File.join(ROOT, "docs", "generated")
+ANDROID_GROUP_ID = "com.multiplatformbusinesssdk"
 
 PRIMITIVE_SWIFT_TYPES = %w[String Int Double Bool].freeze
 PRIMITIVE_KOTLIN_TYPES = {
@@ -161,6 +163,49 @@ def cleanup_generated_directories(contracts)
   Dir.children(ANDROID_MODULES_DIR).each do |entry|
     FileUtils.rm_rf(File.join(ANDROID_MODULES_DIR, entry))
   end
+
+  FileUtils.rm_rf(ANDROID_UMBRELLA_DIR)
+end
+
+def android_publish_snippet(artifact_id, pom_name, pom_description)
+  <<~KOTLIN
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
+    afterEvaluate {
+        extensions.configure<PublishingExtension>("publishing") {
+            publications {
+                create<MavenPublication>("release") {
+                    from(components["release"])
+                    groupId = "#{ANDROID_GROUP_ID}"
+                    artifactId = "#{artifact_id}"
+                    version = System.getenv("SDK_VERSION") ?: "0.1.0-SNAPSHOT"
+
+                    pom {
+                        name.set("#{pom_name}")
+                        description.set("#{pom_description}")
+                    }
+                }
+            }
+
+            repositories {
+                maven {
+                    name = "GitHubPackages"
+                    val repository = System.getenv("GITHUB_REPOSITORY") ?: "OWNER/REPO"
+                    url = uri("https://maven.pkg.github.com/$repository")
+                    credentials {
+                        username = System.getenv("GITHUB_ACTOR")
+                        password = System.getenv("GITHUB_TOKEN")
+                    }
+                }
+            }
+        }
+    }
+  KOTLIN
 end
 
 def generate_contract_docs(contracts)
@@ -219,6 +264,31 @@ def generate_contract_docs(contracts)
     - Total contracts: `#{contracts.size}`
     - Generated Swift package: `BusinessSDK/`
     - Generated Android modules: `android/`
+    - Android GitHub package: `#{ANDROID_GROUP_ID}:business-sdk-android:$SDK_VERSION`
+
+    ## Android Consumption
+
+    Add GitHub Packages:
+
+    ```kotlin
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/<OWNER>/<REPO>")
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull
+                password = providers.gradleProperty("gpr.key").orNull
+            }
+        }
+    }
+    ```
+
+    Consume the umbrella package:
+
+    ```kotlin
+    dependencies {
+        implementation("#{ANDROID_GROUP_ID}:business-sdk-android:$SDK_VERSION")
+    }
+    ```
 
     #{body}
   MARKDOWN
@@ -714,6 +784,7 @@ def generate_android_core
     plugins {
         id("com.android.library")
         kotlin("android")
+        id("maven-publish")
     }
 
     android {
@@ -737,6 +808,7 @@ def generate_android_core
     dependencies {
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
+#{android_publish_snippet("business-sdk-android-core", "Business SDK Android Core", "Core networking primitives for generated Android SDK modules.")}
   KOTLIN
 
   core_source = <<~KOTLIN
@@ -921,6 +993,7 @@ def generate_android_contract(contract)
     plugins {
         id("com.android.library")
         kotlin("android")
+        id("maven-publish")
     }
 
     android {
@@ -945,6 +1018,7 @@ def generate_android_contract(contract)
         implementation(project(":sdk-core"))
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
+#{android_publish_snippet("#{contract.fetch("android_module")}-android", "#{contract.fetch("name")} Android", "Generated Android business SDK for #{contract.fetch("name")}.")}
   KOTLIN
 
   models = contract.fetch("models").map do |model|
@@ -1076,8 +1150,51 @@ def generate_android_contract(contract)
   write_file(File.join(package_dir, "#{contract.fetch("swift_module")}.kt"), source)
 end
 
+def generate_android_umbrella(contracts)
+  dependencies = ["api(project(\":sdk-core\"))"] + contracts.map { |contract| "api(project(\":modules:#{contract.fetch("android_module")}\"))" }
+  build_gradle = <<~KOTLIN
+    plugins {
+        id("com.android.library")
+        kotlin("android")
+        id("maven-publish")
+    }
+
+    android {
+        namespace = "#{ANDROID_GROUP_ID}"
+        compileSdk = 34
+
+        defaultConfig {
+            minSdk = 26
+        }
+
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
+
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
+
+    dependencies {
+        #{dependencies.join("\n        ")}
+    }
+#{android_publish_snippet("business-sdk-android", "Business SDK Android", "Umbrella Android package exposing all generated SDK modules from this repository.")}
+  KOTLIN
+
+  source = <<~KOTLIN
+    package #{ANDROID_GROUP_ID}
+
+    public object BusinessSDKPackage
+  KOTLIN
+
+  write_file(File.join(ANDROID_UMBRELLA_DIR, "build.gradle.kts"), build_gradle)
+  write_file(File.join(ANDROID_UMBRELLA_DIR, "src", "main", "java", "com", "multiplatformbusinesssdk", "BusinessSDKPackage.kt"), source)
+end
+
 def generate_android_settings(contracts)
-  includes = [":sdk-core"] + contracts.map { |contract| ":modules:#{contract.fetch("android_module")}" }
+  includes = [":sdk-core", ":business-sdk"] + contracts.map { |contract| ":modules:#{contract.fetch("android_module")}" }
   project_lines = contracts.map do |contract|
     module_name = contract.fetch("android_module")
     "project(\":modules:#{module_name}\").projectDir = file(\"modules/#{module_name}\")"
@@ -1102,6 +1219,7 @@ def generate_android_settings(contracts)
 
     rootProject.name = "MultiPlatformBusinessSDK"
     #{includes.map { |include_line| "include(\"#{include_line}\")" }.join("\n")}
+    project(":business-sdk").projectDir = file("business-sdk")
     #{project_lines.join("\n")}
   KOTLIN
 end
@@ -1111,8 +1229,17 @@ def generate_android_root_build
     plugins {
         id("com.android.library") version "8.5.2" apply false
         kotlin("android") version "2.0.21" apply false
+        id("maven-publish") apply false
     }
   KOTLIN
+end
+
+def generate_android_gradle_properties
+  <<~PROPERTIES
+    org.gradle.jvmargs=-Xmx2g -Dfile.encoding=UTF-8
+    android.useAndroidX=true
+    kotlin.code.style=official
+  PROPERTIES
 end
 
 contracts = read_contracts
@@ -1132,8 +1259,10 @@ end
 ensure_dir(ANDROID_DIR)
 write_file(File.join(ANDROID_DIR, "settings.gradle.kts"), generate_android_settings(contracts))
 write_file(File.join(ANDROID_DIR, "build.gradle.kts"), generate_android_root_build)
+write_file(File.join(ANDROID_DIR, "gradle.properties"), generate_android_gradle_properties)
 generate_android_core
 contracts.each { |contract| generate_android_contract(contract) }
+generate_android_umbrella(contracts)
 write_file(File.join(DOCS_DIR, "SDK_CATALOG.md"), generate_contract_docs(contracts))
 
 puts "Generated SDKs for #{contracts.size} contract(s)."

@@ -5,7 +5,7 @@
     }
 
     android {
-        namespace = "com.multiplatformbusinesssdk.core"
+        namespace = "com.multiplatformbusinesssdk"
         compileSdk = 34
 
         defaultConfig {
@@ -23,7 +23,10 @@
     }
 
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+        api(project(":sdk-core"))
+        api(project(":modules:cat-facts-sdk"))
+        api(project(":modules:pokemon-sdk"))
+        api(project(":modules:rick-and-morty-sdk"))
     }
 
 publishing {
@@ -38,12 +41,12 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.multiplatformbusinesssdk"
-                artifactId = "business-sdk-android-core"
+                artifactId = "business-sdk-android"
                 version = System.getenv("SDK_VERSION") ?: "0.1.0-SNAPSHOT"
 
                 pom {
-                    name.set("Business SDK Android Core")
-                    description.set("Core networking primitives for generated Android SDK modules.")
+                    name.set("Business SDK Android")
+                    description.set("Umbrella Android package exposing all generated SDK modules from this repository.")
                 }
             }
         }
